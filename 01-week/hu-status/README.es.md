@@ -1,71 +1,97 @@
-<!-- PLANTILLA HU-STATUS (traduccion al espanol) - NO borres los marcadores <!-- ... -->
-     ni las cabeceras de tabla.
-     ATENCION: la nota semanal se lee AUTOMATICAMENTE del archivo en ingles:
-       01-week/hu-status/README.md  (dentro de TU fork).
-     Este archivo es una copia en espanol para lectura y no se califica. -->
+<!-- PLANTILLA HU-STATUS - no elimine los marcadores <!-- ... -->.
+
+     La calificación semanal se lee AUTOMÁTICAMENTE desde este archivo:
+       01-week/hu-status/README.md  (dentro de SU fork). Inglés. -->
 
 # Estado Semanal - Semana 01
 
-<!-- CONFIG-START - debe coincidir con el CONFIG de tu repo de perfil (username/username) -->
-- FULL_NAME: Jesus Ariel Gonzalez Bonilla
-- GITHUB_USER: ariel5253
-- TEAM: Grupo 1 - PRJ-FERRETERIA-V13
-- SPRINT_GOAL: Convertir el brief de control de dinero de la ferreteria en un mapa de contextos acotados, un ADR para el estilo arquitectonico y un backlog verificable de historias de ingresos, egresos y resumenes.
+<!-- CONFIG-START - debe coincidir con el CONFIG de su repositorio de perfil (username/username) -->
+
+- FULL_NAME: Juan Sebastian Osorio Fierro
+- GITHUB_USER: Sebastian080502
+- TEAM: Grupo 1 - Distributed Reservation Platform
+- SPRINT_GOAL: Preparar el producto, el dominio, el backlog, la estrategia de consistencia y la organización del proyecto necesarias para iniciar el primer Sprint formal de desarrollo.
 <!-- CONFIG-END -->
 
 ## 1. Historias de usuario trabajadas esta semana
-| HU ID | Titulo | Estado (todo/doing/done) | Evidencia (URL de PR o commit) |
-|---|---|---|---|
-| HU-FIN-001 | Registrar un ingreso con fecha, categoria, valor y nota opcional | doing | https://github.com/code-corhuila/sistemas-distribuidos-2026-b-g1/commit/b4ae1cc |
-| HU-FIN-002 | Registrar un egreso con fecha, categoria, valor y nota opcional | todo | Pendiente - rama hu-fin-002-dev aun no creada |
-| HU-FIN-003 | Consultar un resumen por periodo (dia/semana/mes) con total de ingresos, total de egresos y saldo neto | doing | https://github.com/code-corhuila/sistemas-distribuidos-2026-b-g1/commit/b4ae1cc |
-| HU-FIN-004 | Administrar las categorias de ingreso y egreso para clasificar cada movimiento | todo | Pendiente - rama hu-fin-004-dev aun no creada |
-| HU-FIN-005 | Listar el detalle de movimientos de un periodo para conciliar un saldo que no cuadra | todo | Pendiente - rama hu-fin-005-dev aun no creada |
 
-## 2. Mi contribucion individual
-- Escribi el product brief (`prd.md`) de PRJ-FERRETERIA-V13: contexto inicial, necesidades y problemas, proceso actual, preguntas abiertas y glosario de negocio (ingreso, egreso, saldo neto, corte diario, periodo, categoria).
-- Fije el stack declarado y sus limites: Angular en el frontend, Go en el backend y MySQL como base de datos. Deje el producto explicitamente **fuera** de POS, facturacion, inventario por producto y ERP: el entregable es unicamente control financiero agregado.
-- Derive el primer backlog (HU-FIN-001 .. HU-FIN-005) a partir de la seccion de necesidades y problemas, de modo que cada historia se pueda rastrear hasta una necesidad de negocio declarada y no a una suposicion tecnica.
-- Apliqué el material de la Sesion de Semana 2 (ver el resumen mas abajo): elabore primero el **context map** - un unico contexto acotado `Finanzas` que es dueno de movimientos, categorias y resumenes por periodo - antes de proponer cualquier frontera de servicio.
-- Inicie el **ADR-001 (estilo arquitectonico)**: contexto = un solo administrador, volumen bajo de transacciones, consultas agregadas diarias/semanales/mensuales; decision = monolito modular en Go con contrato REST para Angular; alternativas rechazadas = microservicios (no existe necesidad real de escala ni de despliegue independiente) y event-driven (no hay integracion asincrona en el alcance); consecuencias = operacion mas simple ahora y un unico punto de extraccion mas adelante si el reporteo crece.
-- Apliqué la regla de extraccion de microservicios vista en clase (frontera real **+** necesidad real de escala/despliegue). Hoy no se cumple ninguna de las dos, asi que la decision queda documentada como "monolito modular bien disenado" y no como un monolito distribuido con base de datos compartida.
-- Bosqueje el capeado hexagonal del lado Go: `domain` (Movimiento, Categoria, Periodo y el calculo de saldo neto) sin I/O, `application` (casos de uso) e `infrastructure` (repositorio MySQL y handlers HTTP).
+| HU ID      | Título                                                        | Estado (todo/doing/done) | Evidencia (URL de PR o commit)                               |
+| ---------- | ------------------------------------------------------------- | ------------------------ | ------------------------------------------------------------ |
+| HU-RES-001 | Consultar espacios disponibles por fecha y hora               | doing                    | Pendiente - commit de recuperación de Semana 01              |
+| HU-RES-002 | Consultar la disponibilidad de un espacio seleccionado        | todo                     | Pendiente - implementación planificada para un Sprint futuro |
+| HU-RES-003 | Crear una reserva para un espacio disponible                  | todo                     | Pendiente - implementación planificada para un Sprint futuro |
+| HU-RES-004 | Consultar el estado de una reserva                            | todo                     | Pendiente - implementación planificada para un Sprint futuro |
+| HU-RES-005 | Procesar el pago asociado a una reserva                       | todo                     | Pendiente - implementación planificada para un Sprint futuro |
+| HU-RES-006 | Confirmar una reserva después de un pago exitoso              | todo                     | Pendiente - flujo distribuido por implementar                |
+| HU-RES-007 | Recibir una notificación cuando una reserva cambie de estado  | todo                     | Pendiente - integración asíncrona futura                     |
+| HU-RES-008 | Gestionar espacios reservables y sus reglas de disponibilidad | doing                    | Pendiente - definición del dominio en progreso               |
 
-## 3. Bloqueos y riesgos
-- **Las preguntas abiertas del brief siguen sin respuesta** y bloquean los criterios de aceptacion: catalogo inicial de categorias, usuario unico o varios usuarios, si el corte diario bloquea ediciones posteriores, si los movimientos se pueden editar o anular, exportacion a CSV/PDF y si el saldo neto es solo por periodo o tambien acumulado.
-- Las respuestas sobre editar/anular y sobre el corte diario cambian el modelo de dominio de forma directa (libro inmutable con asientos de reversion frente a filas mutables), por lo que HU-FIN-001 y HU-FIN-002 no se pueden cerrar hasta decidirlo.
-- El nivel de seguridad de acceso al sistema no esta definido; sin eso no puedo dimensionar la historia de autenticacion ni decidir si pertenece al Corte 1.
-- Todavia no existen las ramas de entorno (`develop`, `qa`) en el repositorio, por lo que esta semana no se pudo ejercitar el flujo de rama HU + PR por entorno: solo existe `main`.
-- Riesgo de desviacion de alcance hacia un POS: el brief lo descarta, y cada historia nueva debe contrastarse contra ese limite antes de entrar al backlog.
+## 2. Mi contribución individual
 
-## 4. Plan para la proxima semana
-- Cerrar las preguntas abiertas con el interesado y convertir cada respuesta en un criterio de aceptacion.
-- Publicar el `ADR-001` como archivo del repositorio (Contexto / Decision / Alternativas / Consecuencias) siguiendo la plantilla de la sesion.
-- Crear `develop` y `qa`, y luego abrir `hu-fin-001-dev` y `hu-fin-002-dev` con sus PR hacia `develop`.
-- Implementar el dominio `Movimiento` y `Categoria` en Go con pruebas unitarias del calculo de saldo neto, manteniendo el dominio libre de I/O.
-- Definir el esquema MySQL (movimientos, categorias) y el contrato REST que consumira Angular.
-- Construir el endpoint de resumen por periodo (dia/semana/mes) con una prueba de integracion contra MySQL.
+- Definí el dominio del proyecto como una **Plataforma Distribuida de Gestión y Reservas de Espacios**, enfocada en la gestión de espacios reservables, disponibilidad, reservas, pagos y notificaciones.
+- Identifiqué el problema principal a resolver: evitar reservas conflictivas, proporcionar información confiable sobre la disponibilidad, coordinar los procesos de reserva y pago, y mantener trazabilidad del ciclo de vida de una reserva.
+- Definí el alcance inicial del producto y establecí límites para evitar un crecimiento descontrolado durante el periodo de desarrollo disponible.
+- Identifiqué los principales actores y operaciones de negocio del MVP inicial: usuarios, administradores de espacios, consultas de disponibilidad, creación de reservas, procesamiento de pagos, confirmación de reservas y notificaciones.
+- Definí el backlog inicial mediante las HU-RES-001 a HU-RES-008, derivando las historias de las capacidades de negocio y no de detalles técnicos de implementación.
+- Analicé los requisitos de consistencia de las operaciones principales. La creación de reservas y la confirmación de pagos requieren consistencia fuerte y procesamiento idempotente, mientras que las notificaciones y futuras capacidades de reportes pueden utilizar consistencia eventual.
+- Definí la estrategia inicial de semántica de entrega. Los comandos y eventos críticos utilizarán at-least-once cuando sea necesario, junto con consumidores idempotentes cuando exista posibilidad de procesamiento duplicado. Las consultas dirigidas al usuario utilizarán comunicación síncrona de solicitud y respuesta.
+- Establecí que el proyecto utilizará **microservicios desde el inicio**, con límites de servicio derivados de capacidades de negocio y bounded contexts, en lugar de capas técnicas.
+- Establecí que cada microservicio deberá ser propietario de sus datos y que se evitará compartir una base de datos entre servicios para prevenir la construcción de un monolito distribuido.
+- Definí la escalabilidad como un requisito del proyecto. El MVP inicial contendrá únicamente los servicios justificados por el dominio, mientras que la arquitectura permitirá incorporar nuevos bounded contexts cuando exista una razón de negocio o arquitectónica.
+- Establecí la documentación como un entregable fundamental del proyecto, incluyendo el Brief del Producto, documentación del dominio, diagramas C4, ADRs, contratos de API, contratos de eventos, estrategia de pruebas, seguridad y despliegue.
+- Definí el enfoque de gestión del proyecto como **Scrumban**, utilizando Sprints semanales para el desarrollo y Kanban mediante GitHub Projects para visualizar continuamente el trabajo.
+- Preparé la organización inicial del proyecto necesaria para completar las actividades de recuperación e iniciar el primer Sprint formal de desarrollo.
 
-## 5. Autoevaluacion de cumplimiento
-- [x] Conventional Commits - `type(scope): summary`
-- [ ] Rama HU + PR por entorno (hu-xxx-dev -> develop, ...)
-- [ ] Criterios de aceptacion verificables
-- [ ] Pruebas agregadas o actualizadas (unitarias / integracion)
-- [ ] Limites DDD / hexagonal respetados (el dominio no tiene I/O)
-- [x] Sin secretos; configuracion por variables de entorno
+## 3. Bloqueantes y riesgos
 
-Notas sobre los items sin marcar:
-- Hasta ahora solo existe `main`, por lo que no se pudo abrir ninguna rama HU ni PR hacia `develop`.
-- Los criterios de aceptacion siguen en borrador hasta responder las preguntas abiertas de la seccion 3.
-- Esta semana no se escribio codigo de produccion, asi que todavia no hay nada que probar.
-- El capeado hexagonal esta disenado pero aun no materializado en codigo.
+- La definición del proyecto se realizó después del inicio de las primeras semanas del curso, por lo que las actividades de las Semanas 01 y 02 se están recuperando antes de iniciar el primer Sprint formal de desarrollo.
+- El proyecto tuvo que seleccionarse cuidadosamente para cumplir los requisitos de Sistemas Distribuidos y mantener al mismo tiempo un alcance controlado para un único desarrollador.
+- Los límites definitivos de los microservicios todavía no se han fijado arbitrariamente. Serán validados mediante el análisis del dominio y los bounded contexts para evitar una fragmentación innecesaria.
+- El proyecto está siendo desarrollado individualmente, lo que representa un riesgo de alcance y tiempo. Por esta razón, el MVP inicial debe mantenerse controlado.
+- El número de microservicios no se incrementará únicamente para aumentar la complejidad aparente del proyecto. Cada nuevo servicio deberá representar una capacidad de negocio justificada.
+- El primer Sprint formal de desarrollo todavía no ha comenzado. El trabajo actual corresponde a la preparación y recuperación de las primeras actividades académicas.
+- Las decisiones técnicas deberán mantenerse abiertas hasta que se complete el análisis arquitectónico correspondiente.
+
+## 4. Plan para la próxima semana
+
+- Completar el análisis de Domain-Driven Design de la plataforma de reservas.
+- Identificar y validar los bounded contexts y sus responsabilidades.
+- Crear el Context Map inicial y definir las relaciones entre los bounded contexts.
+- Definir los límites iniciales de los microservicios a partir de las capacidades de negocio.
+- Documentar la decisión arquitectónica mediante ADR-001.
+- Definir la estrategia inicial de comunicación entre servicios, incluyendo comunicación REST síncrona y mensajería asíncrona cuando sea apropiado.
+- Definir la propiedad de los datos y la estrategia de persistencia de cada servicio.
+- Refinar el backlog inicial y agregar criterios de aceptación verificables a las principales historias de usuario.
+- Configurar el tablero de GitHub Projects y preparar el primer Sprint formal.
+- Iniciar la implementación del primer microservicio después de validar los límites del dominio y la arquitectura.
+
+## 5. Autoverificación de cumplimiento
+
+- [x] Problema y alcance inicial del proyecto definidos
+- [x] Backlog inicial creado a partir de necesidades de negocio
+- [x] Estrategia de consistencia definida para operaciones críticas
+- [x] Semántica de entrega considerada para operaciones distribuidas
+- [x] Microservicios establecidos como dirección arquitectónica
+- [x] Estrategia inicial de escalabilidad definida
+- [x] No se han incluido secretos ni credenciales
+- [ ] Bounded Contexts y Context Map completados
+- [ ] ADR-001 publicado
+- [ ] Pruebas automatizadas agregadas
+- [ ] Rama HU por entorno + PR completada
+- [ ] Primer Sprint formal iniciado
+
+Notas sobre los elementos pendientes:
+
+- Los Bounded Contexts, el Context Map y el ADR-001 corresponden al trabajo arquitectónico de recuperación de la Semana 02.
+- Todavía no se ha implementado ningún microservicio porque el proyecto se encuentra en la etapa de preparación y definición arquitectónica.
+- El primer Sprint formal comenzará después de completar las actividades de recuperación y configurar GitHub Projects.
+- La evidencia de ramas y PRs se agregará cuando la primera HU de implementación entre en desarrollo siguiendo el flujo definido para el repositorio.
 
 ## 6. Enlaces de evidencia
-- Product brief: [`prd.md`](./prd.md) - PRJ-FERRETERIA-V13 (contexto, necesidades, proceso actual, preguntas abiertas y glosario).
-- Commit de estructura del repositorio: https://github.com/code-corhuila/sistemas-distribuidos-2026-b-g1/commit/b4ae1cc
+
+- Brief del producto: [`prd.md`](./prd.md) - Plataforma Distribuida de Gestión y Reservas de Espacios.
 - Material de aprendizaje del curso (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
-- Resumen de la sesion usado para la decision arquitectonica - fuente vectorial: [`resumen_sistemas_distribuidos_semana_2.svg`](./resumen_sistemas_distribuidos_semana_2.svg)
+- Repositorio: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
+- GitHub Project: Pendiente - tablero por crear durante la etapa de preparación del proyecto.
 
-![Sistemas Distribuidos - Resumen Semana 2: arquitecturas distribuidas, decision arquitectonica, ADR y backlog](./resumen_sistemas_distribuidos_semana_2_preview.png)
-
-Principio clave tomado del material: **dividir por una razon, no por moda**. Una buena arquitectura hace explicitos los limites, los contratos, los trade-offs y el motivo de la decision.
+El proyecto seguirá el principio de **separar servicios por una razón y no por moda**. Los microservicios se derivarán de límites de negocio significativos, contratos explícitos, propiedad independiente de los datos y necesidades justificadas de escalabilidad o despliegue.

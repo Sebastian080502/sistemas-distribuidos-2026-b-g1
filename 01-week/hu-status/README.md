@@ -1,69 +1,98 @@
-<!-- HU-STATUS TEMPLATE - do NOT remove the <!-- ... --> markers or the table headers.
+<!-- HU-STATUS TEMPLATE - do NOT remove the <!-- ... --> markers.
+
      Your weekly grade is read AUTOMATICALLY from this file:
        01-week/hu-status/README.md  (inside YOUR fork). English. -->
 
 # Weekly Status - Week 01
 
 <!-- CONFIG-START - must match your profile repo (username/username) CONFIG -->
-- FULL_NAME: Jesus Ariel Gonzalez Bonilla
-- GITHUB_USER: ariel5253
-- TEAM: Group 1 - PRJ-FERRETERIA-V13
-- SPRINT_GOAL: Turn the hardware-store cash-control brief into a bounded context map, an ADR for the architectural style, and a testable backlog of income/expense/summary user stories.
+
+- FULL_NAME: Juan Sebastian Osorio Fierro
+- GITHUB_USER: Sebastian080502
+- TEAM: Group 1 - Distributed Reservation Platform
+- SPRINT_GOAL: Prepare the product, domain, backlog, consistency strategy, and project organization required to start the first formal development Sprint.
 <!-- CONFIG-END -->
 
 ## 1. User stories worked this week
-| HU ID | Title | Status (todo/doing/done) | Evidence (PR or commit URL) |
-|---|---|---|---|
-| HU-FIN-001 | Register an income movement with date, category, amount and optional note | doing | https://github.com/code-corhuila/sistemas-distribuidos-2026-b-g1/commit/b4ae1cc |
-| HU-FIN-002 | Register an expense movement with date, category, amount and optional note | todo | Pending - branch hu-fin-002-dev not opened yet |
-| HU-FIN-003 | Query a period summary (day/week/month) with total income, total expense and net balance | doing | https://github.com/code-corhuila/sistemas-distribuidos-2026-b-g1/commit/b4ae1cc |
-| HU-FIN-004 | Manage income and expense categories to classify each movement | todo | Pending - branch hu-fin-004-dev not opened yet |
-| HU-FIN-005 | List the movement detail of a period to reconcile a balance that does not add up | todo | Pending - branch hu-fin-005-dev not opened yet |
+
+| HU ID      | Title                                                        | Status (todo/doing/done) | Evidence (PR or commit URL)                                    |
+| ---------- | ------------------------------------------------------------ | ------------------------ | -------------------------------------------------------------- |
+| HU-RES-001 | Consult available spaces by date and time                    | doing                    | Pending - Week 01 recovery commit                              |
+| HU-RES-002 | Consult the availability of a selected space                 | todo                     | Pending - implementation planned for a future Sprint           |
+| HU-RES-003 | Create a reservation for an available space                  | todo                     | Pending - implementation planned for a future Sprint           |
+| HU-RES-004 | Consult the status of a reservation                          | todo                     | Pending - implementation planned for a future Sprint           |
+| HU-RES-005 | Process the payment associated with a reservation            | todo                     | Pending - implementation planned for a future Sprint           |
+| HU-RES-006 | Confirm a reservation after successful payment               | todo                     | Pending - distributed workflow to be implemented               |
+| HU-RES-007 | Receive a notification when a reservation changes its status | todo                     | Pending - asynchronous integration planned for a future Sprint |
+| HU-RES-008 | Manage reservable spaces and their availability rules        | doing                    | Pending - domain definition in progress                        |
 
 ## 2. My individual contribution
-- Wrote the product brief (`prd.md`) for PRJ-FERRETERIA-V13: initial context, needs and problems, current process, open questions and business glossary (income, expense, net balance, daily cut, period, category).
-- Fixed the declared stack and its boundaries: Angular frontend, Go backend, MySQL database. Explicitly scoped the product **out** of POS, invoicing, per-product inventory and ERP - the deliverable is aggregated financial control only.
-- Derived the first backlog (HU-FIN-001 .. HU-FIN-005) from the "needs and problems" section, so every story traces back to a stated business need instead of a technical guess.
-- Applied the Week-2 session material (see the summary below): drafted the **context map first** - a single `Finance` bounded context owning movements, categories and period summaries - before proposing any service boundary.
-- Started **ADR-001 (architectural style)**: context = one administrator, low transaction volume, daily/weekly/monthly aggregate queries; decision = modular monolith in Go with a REST contract for Angular; alternatives rejected = microservices (no real scale or deploy need) and event-driven (no asynchronous integration in scope); consequences = simpler operation now, one extraction point later if reporting grows.
-- Applied the microservice extraction rule from the session (real boundary **+** real scale/deploy need). Neither condition holds today, so the decision is documented as "well-designed modular monolith" rather than a distributed monolith with a shared database.
-- Sketched the hexagonal layering for the Go side: `domain` (Movement, Category, Period, net-balance calculation) with no I/O, `application` (use cases), `infrastructure` (MySQL repository, HTTP handlers).
+
+- Defined the project domain as a **Distributed Platform for Space Management and Reservations**, focused on managing reservable spaces, availability, reservations, payments, and notifications.
+- Identified the main problem to solve: avoiding conflicting reservations, providing reliable availability information, coordinating reservation and payment processes, and maintaining a traceable reservation lifecycle.
+- Defined the initial product scope and established boundaries to prevent uncontrolled growth during the remaining development period.
+- Identified the main actors and business operations involved in the initial MVP: users, space administrators, availability queries, reservation creation, payment processing, reservation confirmation, and notifications.
+- Defined the initial product backlog through HU-RES-001 to HU-RES-008, deriving the stories from business capabilities rather than technical implementation details.
+- Analyzed the consistency requirements of the main operations. Reservation creation and payment confirmation require strong consistency and idempotent processing, while notifications and future reporting capabilities can use eventual consistency.
+- Defined the initial delivery semantics strategy. Critical commands and events will use at-least-once delivery combined with idempotent consumers where duplicate processing is possible. User-facing queries will use request/response semantics.
+- Established the architectural direction that the project will use **microservices from the beginning**, with service boundaries derived from business capabilities and bounded contexts rather than technical layers.
+- Established that each microservice must own its data and that a shared database between services will be avoided in order to prevent a distributed monolith.
+- Defined scalability as a project requirement: the initial MVP will contain only the services justified by the domain, while the architecture will allow future bounded contexts such as reviews, analytics, promotions, search, loyalty, or auditing to be introduced when justified.
+- Defined the intention to reuse the project as a foundation for the Software Architecture course, keeping the architecture compatible with a future AWS deployment involving EC2, RDS, IAM, VPC, and additional infrastructure requirements that may be introduced later.
+- Established documentation as a first-class project deliverable, including the Product Brief, domain documentation, C4 diagrams, ADRs, API contracts, testing strategy, security documentation, and deployment documentation.
+- Defined the project management approach as **Scrumban**, using weekly Sprints for the development process and Kanban through GitHub Projects for continuous work visualization.
+- Prepared the initial project organization required to complete the recovery activities and begin the first formal development Sprint.
 
 ## 3. Blockers and risks
-- **Open questions in the brief are still unanswered** and they block acceptance criteria: initial category catalogue, single vs. multiple users, whether a daily cut locks later edits, whether movements can be edited/voided, CSV/PDF export, and whether the net balance is per period only or also cumulative.
-- The edit/void and daily-cut answers change the domain model directly (immutable ledger + reversal entries vs. mutable rows), so HU-FIN-001 and HU-FIN-002 cannot be closed until that is decided.
-- Security level for system access is undefined; without it I cannot size the authentication story or decide if it belongs to Corte 1.
-- No environment branches (`develop`, `qa`) exist in the repository yet, so the per-environment HU branch + PR flow could not be exercised this week - only `main` is present.
-- Risk of scope creep towards a POS: the brief rules it out, and every new story must be checked against that boundary before it enters the backlog.
+
+- The project definition was established after the first weeks of the course, so the Week 01 and Week 02 activities are being recovered before starting the first formal development Sprint.
+- The project had to be selected carefully to satisfy the requirements of Distributed Systems while also remaining reusable for the Software Architecture course and its future AWS deployment.
+- The exact future requirements of the Software Architecture course are not fully known yet. The architecture therefore needs to remain extensible without introducing unnecessary infrastructure or services prematurely.
+- The final number of microservices has not been fixed arbitrarily. Service boundaries will be validated through domain analysis and bounded contexts to avoid unnecessary service fragmentation.
+- The project is being developed individually, which creates a scope and time risk. The initial MVP must therefore remain controlled and additional microservices will only be introduced when they represent a justified business capability.
+- The first formal development Sprint has not started yet. The current work corresponds to project initialization and recovery of the first academic activities.
+- AWS deployment is planned as a later stage. Infrastructure decisions will be documented so that the system can evolve from the local containerized environment to AWS without redesigning the business domain.
 
 ## 4. Plan for next week
-- Close the open questions with the stakeholder and convert each answer into an acceptance criterion.
-- Publish `ADR-001` as a file in the repository (Context / Decision / Alternatives / Consequences) following the session template.
-- Create `develop` and `qa`, then open `hu-fin-001-dev` and `hu-fin-002-dev` with PRs to `develop`.
-- Implement the `Movement` and `Category` domain in Go with unit tests for the net-balance calculation, keeping the domain free of I/O.
-- Define the MySQL schema (movements, categories) and the REST contract consumed by Angular.
-- Build the period-summary endpoint (day/week/month) plus an integration test against MySQL.
+
+- Complete the Domain-Driven Design analysis of the reservation platform.
+- Identify and validate the bounded contexts and their responsibilities.
+- Create the initial Context Map and define the relationships between bounded contexts.
+- Define the initial microservice boundaries based on business capabilities.
+- Document the architectural decision in ADR-001.
+- Define the initial communication strategy between services, including synchronous REST communication and asynchronous messaging where appropriate.
+- Define the ownership and persistence strategy for each service.
+- Refine the initial backlog and add testable acceptance criteria to the main user stories.
+- Configure the GitHub Projects board and prepare the first formal weekly Sprint.
+- Start implementation of the first microservice only after the domain and architectural boundaries have been validated.
 
 ## 5. Compliance self-check
-- [x] Conventional Commits - `type(scope): summary`
-- [ ] Per-environment HU branch + PR to that environment (hu-xxx-dev -> develop, ...)
-- [ ] Testable acceptance criteria
-- [ ] Tests added/updated (unit / integration)
-- [ ] DDD / hexagonal boundaries respected (domain has no I/O)
-- [x] No secrets; config via environment variables
+
+- [x] Project problem and initial scope defined
+- [x] Initial backlog created from business needs
+- [x] Consistency strategy defined for critical operations
+- [x] Delivery semantics considered for distributed operations
+- [x] Microservices selected as the architectural direction
+- [x] Initial scalability strategy defined
+- [x] No secrets or credentials committed
+- [ ] Bounded Contexts and Context Map completed
+- [ ] ADR-001 published
+- [ ] Automated tests added
+- [ ] Per-environment HU branch + PR completed
+- [ ] First formal Sprint started
 
 Notes on the unchecked items:
-- Only `main` exists so far, so no HU branch or PR to `develop` could be opened.
-- Acceptance criteria stay draft until the open questions in section 3 are answered.
-- No production code was written this week, so there is nothing to test yet.
-- The hexagonal layering is designed but not yet materialised in code.
+
+- Bounded Contexts, Context Map, and ADR-001 belong to the architectural work being completed during the Week 02 recovery.
+- No production microservice implementation has been committed yet because the project is currently in the initialization and architecture-definition stage.
+- The first formal Sprint will begin after the recovery activities and GitHub Projects setup are completed.
+- Branch and PR evidence will be added once the first implementation HU enters development following the repository workflow.
 
 ## 6. Evidence links
-- Product brief: [`prd.md`](./prd.md) - PRJ-FERRETERIA-V13 (context, needs, current process, open questions, glossary).
-- Repository structure commit: https://github.com/code-corhuila/sistemas-distribuidos-2026-b-g1/commit/b4ae1cc
+
+- Product brief: [`prd.md`](./prd.md) - Distributed Platform for Space Management and Reservations.
 - Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
-- Session summary used for the architectural decision - vector source: [`resumen_sistemas_distribuidos_semana_2.svg`](./resumen_sistemas_distribuidos_semana_2.svg)
+- Repository: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
+- GitHub Project: Pending - project board to be created during project initialization.
 
-![Distributed Systems - Week 2 summary: distributed architectures, architectural decision, ADR and backlog](./resumen_sistemas_distribuidos_semana_2_preview.png)
-
-Key principle taken from the material: **split for a reason, not for fashion** - a good architecture makes boundaries, contracts, trade-offs and the motive of the decision explicit.
+The project follows the principle of **splitting services for a reason rather than for fashion**. Microservices will be derived from meaningful business boundaries, explicit contracts, independent data ownership, and justified scalability or deployment needs.
