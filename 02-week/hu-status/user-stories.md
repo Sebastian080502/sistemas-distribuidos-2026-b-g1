@@ -1,506 +1,506 @@
-# Backlog de Historias de Usuario
+# User Story Backlog
 
-## Plataforma Distribuida de Reservas
+## Distributed Reservation Platform
 
-Este documento contiene el backlog inicial de historias de usuario de la Plataforma Distribuida de Reservas.
+This document contains the initial user-story backlog of the Distributed Reservation Platform.
 
-Las historias se derivan de las necesidades identificadas en el PRD y están relacionadas con los bounded contexts definidos en el Context Map.
+The stories are derived from the needs identified in the PRD and are related to the bounded contexts defined in the Context Map.
 
-Cada historia debe contar con criterios de aceptación verificables antes de considerarse lista para implementación.
+Each story must have testable acceptance criteria before it is considered ready for implementation.
 
 ---
 
-## HU-ADR-001 — Formalizar la decisión arquitectónica
+## HU-ADR-001 — Formalize the architectural decision
 
-### Historia
+### Story
 
-Como estudiante del curso de Sistemas Distribuidos, quiero documentar la decisión arquitectónica inicial de la Plataforma Distribuida de Reservas, para dejar justificados los bounded contexts, los microservicios candidatos y las alternativas descartadas.
+As a student of the Distributed Systems course, I want to document the initial architectural decision of the Distributed Reservation Platform, so that the bounded contexts, candidate microservices, and rejected alternatives are justified.
 
 ### Bounded Context
 
-Arquitectura / transversal.
+Architecture / cross-cutting.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Bounded contexts identificados
+#### AC-001 — Bounded contexts identified
 
-Dado el análisis inicial del dominio,
-cuando se documente la arquitectura,
-entonces deben identificarse los bounded contexts principales de la plataforma.
+Given the initial domain analysis,
+when the architecture is documented,
+then the main bounded contexts of the platform must be identified.
 
-#### CA-002 — Justificación de microservicios
+#### AC-002 — Microservices justification
 
-Dado que el proyecto corresponde a Sistemas Distribuidos,
-cuando se seleccione la arquitectura,
-entonces debe justificarse el uso de microservicios.
+Given that the project belongs to Distributed Systems,
+when the architecture is selected,
+then the use of microservices must be justified.
 
-#### CA-003 — Alternativas consideradas
+#### AC-003 — Alternatives considered
 
-Cuando se documente la decisión arquitectónica,
-entonces deben registrarse las alternativas consideradas y las razones para descartarlas.
+When the architectural decision is documented,
+then the considered alternatives and the reasons for rejecting them must be recorded.
 
-#### CA-004 — Responsabilidad de cada servicio
+#### AC-004 — Responsibility of each service
 
-Cuando se defina la arquitectura inicial,
-entonces cada microservicio debe tener una responsabilidad de negocio claramente delimitada.
+When the initial architecture is defined,
+then each microservice must have a clearly bounded business responsibility.
 
-#### CA-005 — Comunicación síncrona y asíncrona
+#### AC-005 — Synchronous and asynchronous communication
 
-Cuando se documente la comunicación entre servicios,
-entonces deben identificarse las interacciones síncronas y asíncronas previstas.
+When communication between services is documented,
+then the planned synchronous and asynchronous interactions must be identified.
 
-#### CA-006 — Propiedad de datos
+#### AC-006 — Data ownership
 
-Cuando se documente la propiedad de datos,
-entonces debe establecerse que cada microservicio es responsable de sus propios datos.
+When data ownership is documented,
+then it must be established that each microservice is responsible for its own data.
 
-#### CA-007 — Inmutabilidad del ADR
+#### AC-007 — ADR immutability
 
-Cuando el ADR sea aceptado,
-entonces cualquier modificación posterior de la decisión arquitectónica deberá registrarse mediante un nuevo ADR.
+When the ADR is accepted,
+then any later change to the architectural decision must be recorded through a new ADR.
 
-### Evidencia
+### Evidence
 
 - [`adr-001-architecture.md`](./adr-001-architecture.md)
 - [`context-map.md`](./context-map.md)
 
 ---
 
-## HU-ARC-001 — Identificar bounded contexts
+## HU-ARC-001 — Identify bounded contexts
 
-### Historia
+### Story
 
-Como equipo, quiero definir los bounded contexts de la plataforma para establecer límites de negocio claros.
+As the team, I want to define the bounded contexts of the platform so that clear business boundaries are established.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-- Identity & Access está definido.
-- Space Management está definido.
-- Reservation Management está definido.
-- Payment Management está definido.
-- Notification Management está definido.
-- Cada contexto tiene una responsabilidad claramente documentada.
+- Identity and Access is defined.
+- Space Management is defined.
+- Reservation Management is defined.
+- Payment Management is defined.
+- Notification Management is defined.
+- Each context has a clearly documented responsibility.
 
-### Evidencia
-
-- [`context-map.md`](./context-map.md)
-
----
-
-## HU-ARC-002 — Definir el Context Map inicial
-
-### Historia
-
-Como equipo, quiero documentar el Context Map para establecer las relaciones entre los bounded contexts.
-
-### Prioridad
-
-Alta.
-
-### Criterios de aceptación
-
-- Las relaciones entre contextos están documentadas.
-- El propietario de cada dato está identificado.
-- No existe acceso directo entre bases de datos.
-- Los contratos de comunicación síncrona y asíncrona están identificados.
-
-### Evidencia
+### Evidence
 
 - [`context-map.md`](./context-map.md)
 
 ---
 
-## HU-ARC-003 — Documentar la decisión arquitectónica mediante ADR-001
+## HU-ARC-002 — Define the initial Context Map
 
-### Historia
+### Story
 
-Como equipo, quiero documentar la decisión arquitectónica mediante ADR-001.
+As the team, I want to document the Context Map so that the relationships between bounded contexts are established.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-- Contexto documentado.
-- Decisión documentada.
-- Alternativas consideradas.
-- Alternativas rechazadas justificadamente.
-- Consecuencias positivas y negativas documentadas.
+- Relationships between contexts are documented.
+- The owner of each data set is identified.
+- There is no direct access between databases.
+- Synchronous and asynchronous communication contracts are identified.
 
-### Evidencia
+### Evidence
+
+- [`context-map.md`](./context-map.md)
+
+---
+
+## HU-ARC-003 — Document the architectural decision in ADR-001
+
+### Story
+
+As the team, I want to document the architectural decision through ADR-001.
+
+### Priority
+
+High.
+
+### Acceptance criteria
+
+- Context documented.
+- Decision documented.
+- Alternatives considered.
+- Rejected alternatives justified.
+- Positive and negative consequences documented.
+
+### Evidence
 
 - [`adr-001-architecture.md`](./adr-001-architecture.md)
 
 ---
 
-## HU-RES-001 — Consultar espacios disponibles
+## HU-RES-001 — Consult available spaces
 
-### Historia
+### Story
 
-Como usuario, quiero consultar los espacios disponibles para una fecha y rango horario, para poder seleccionar un espacio que pueda reservar.
+As a user, I want to consult the spaces available for a date and time range, so that I can select a space I can reserve.
 
 ### Bounded Context
 
-Gestión de Espacios.
+Space Management.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Consulta válida
+#### AC-001 — Valid query
 
-Dado un rango de fecha y hora válido,
-cuando el usuario consulte la disponibilidad,
-entonces el sistema debe mostrar los espacios disponibles para ese periodo.
+Given a valid date and time range,
+when the user queries availability,
+then the system must show the spaces available for that period.
 
-#### CA-002 — Espacio ya reservado
+#### AC-002 — Space already reserved
 
-Dado un espacio que ya tiene una reserva confirmada durante el periodo solicitado,
-cuando se consulte su disponibilidad,
-entonces dicho espacio no debe aparecer como disponible.
+Given a space that already has a confirmed reservation during the requested period,
+when its availability is queried,
+then that space must not appear as available.
 
-#### CA-003 — Rango inválido
+#### AC-003 — Invalid range
 
-Dado un rango de fecha y hora inválido,
-cuando se realice la consulta,
-entonces el sistema debe rechazar la solicitud indicando el error.
+Given an invalid date and time range,
+when the query is made,
+then the system must reject the request and indicate the error.
 
-#### CA-004 — Consulta sin efectos colaterales
+#### AC-004 — Query without side effects
 
-Cuando se consulte la disponibilidad,
-entonces la consulta no debe modificar ninguna reserva existente.
+When availability is queried,
+then the query must not modify any existing reservation.
 
 ---
 
-## HU-RES-002 — Consultar la disponibilidad de un espacio seleccionado
+## HU-RES-002 — Consult the availability of a selected space
 
-### Historia
+### Story
 
-Como usuario, quiero consultar la disponibilidad de un espacio específico, para saber si puedo reservarlo en una fecha y horario determinados.
+As a user, I want to consult the availability of a specific space, so that I know whether I can reserve it on a given date and time.
 
 ### Bounded Context
 
-Gestión de Espacios.
+Space Management.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Espacio disponible
+#### AC-001 — Space available
 
-Dado un espacio existente y un periodo válido sin reservas confirmadas superpuestas,
-cuando el usuario consulte ese espacio,
-entonces el sistema debe indicar que el espacio está disponible.
+Given an existing space and a valid period with no overlapping confirmed reservations,
+when the user queries that space,
+then the system must indicate that the space is available.
 
-#### CA-002 — Espacio no disponible
+#### AC-002 — Space unavailable
 
-Dado un espacio con una reserva confirmada que se superpone con el periodo solicitado,
-cuando el usuario consulte ese espacio,
-entonces el sistema debe indicar que no está disponible.
+Given a space with a confirmed reservation that overlaps the requested period,
+when the user queries that space,
+then the system must indicate that it is not available.
 
-#### CA-003 — Espacio inexistente
+#### AC-003 — Space does not exist
 
-Dado un identificador de espacio que no existe,
-cuando se consulte su disponibilidad,
-entonces el sistema debe rechazar la solicitud indicando que el espacio no fue encontrado.
+Given a space identifier that does not exist,
+when its availability is queried,
+then the system must reject the request indicating that the space was not found.
 
-#### CA-004 — Periodo bloqueado
+#### AC-004 — Blocked period
 
-Dado un espacio con un periodo bloqueado por el administrador,
-cuando se consulte ese periodo,
-entonces el sistema debe indicar que el espacio no está disponible.
+Given a space with a period blocked by the administrator,
+when that period is queried,
+then the system must indicate that the space is not available.
 
 ---
 
-## HU-RES-003 — Crear una reserva para un espacio disponible
+## HU-RES-003 — Create a reservation for an available space
 
-### Historia
+### Story
 
-Como usuario, quiero crear una reserva de un espacio disponible, para asegurar el uso del espacio en una fecha y horario específicos.
+As a user, I want to create a reservation for an available space, so that I can secure the space for a specific date and time.
 
 ### Bounded Context
 
-Gestión de Reservas.
+Reservation Management.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Reserva válida
+#### AC-001 — Valid reservation
 
-Dado un usuario autenticado, un espacio existente y un periodo disponible,
-cuando el usuario cree una reserva,
-entonces el sistema debe crear la reserva en un estado inicial válido y devolver su identificador.
+Given an authenticated user, an existing space, and an available period,
+when the user creates a reservation,
+then the system must create the reservation in a valid initial state and return its identifier.
 
-#### CA-002 — Conflicto de disponibilidad
+#### AC-002 — Availability conflict
 
-Dado un espacio que no está disponible en el periodo solicitado,
-cuando el usuario intente crear la reserva,
-entonces el sistema debe rechazar la operación y no crear la reserva.
+Given a space that is not available in the requested period,
+when the user tries to create the reservation,
+then the system must reject the operation and must not create the reservation.
 
-#### CA-003 — Superposición de reservas confirmadas
+#### AC-003 — Overlapping confirmed reservations
 
-Dado que ya existe una reserva confirmada para el mismo espacio y un periodo superpuesto,
-cuando otro usuario intente crear una reserva,
-entonces el sistema debe rechazarla para cumplir BR-001.
+Given that a confirmed reservation already exists for the same space and an overlapping period,
+when another user tries to create a reservation,
+then the system must reject it to satisfy BR-001.
 
-#### CA-004 — Datos incompletos
+#### AC-004 — Incomplete data
 
-Dado que faltan datos obligatorios de la reserva,
-cuando se envíe la solicitud,
-entonces el sistema debe rechazarla indicando los campos inválidos.
+Given that required reservation data is missing,
+when the request is submitted,
+then the system must reject it and indicate the invalid fields.
 
 ---
 
-## HU-RES-004 — Consultar el estado de una reserva
+## HU-RES-004 — Consult the status of a reservation
 
-### Historia
+### Story
 
-Como usuario, quiero consultar el estado de una reserva, para conocer en qué punto del ciclo de vida se encuentra.
+As a user, I want to consult the status of a reservation, so that I know where it is in its lifecycle.
 
 ### Bounded Context
 
-Gestión de Reservas.
+Reservation Management.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Dependencia
+### Dependency
 
-HU-RES-004 puede implementarse después de HU-RES-003.
+HU-RES-004 may be implemented after HU-RES-003.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Consulta de reserva existente
+#### AC-001 — Existing reservation query
 
-Dada una reserva existente,
-cuando el usuario autorizado consulte su estado,
-entonces el sistema debe devolver el identificador, el espacio, el periodo y el estado actual.
+Given an existing reservation,
+when the authorized user queries its status,
+then the system must return the identifier, space, period, and current state.
 
-#### CA-002 — Reserva inexistente
+#### AC-002 — Reservation does not exist
 
-Dado un identificador de reserva que no existe,
-cuando se consulte,
-entonces el sistema debe indicar que la reserva no fue encontrada.
+Given a reservation identifier that does not exist,
+when it is queried,
+then the system must indicate that the reservation was not found.
 
-#### CA-003 — Acceso no autorizado
+#### AC-003 — Unauthorized access
 
-Dado un usuario que no es el dueño de la reserva ni un administrador autorizado,
-cuando intente consultar la reserva,
-entonces el sistema debe rechazar el acceso.
+Given a user who is not the reservation owner and is not an authorized administrator,
+when they try to query the reservation,
+then the system must reject access.
 
-#### CA-004 — Estados visibles
+#### AC-004 — Visible states
 
-Cuando se consulte una reserva,
-entonces el estado devuelto debe corresponder a uno de los estados definidos: PENDIENTE, PAGO_PENDIENTE, CONFIRMADA o CANCELADA.
+When a reservation is queried,
+then the returned state must be one of the defined states: PENDING, PAYMENT_PENDING, CONFIRMED, or CANCELLED.
 
 ---
 
-## HU-RES-005 — Procesar el pago asociado a una reserva
+## HU-RES-005 — Process the payment associated with a reservation
 
-### Historia
+### Story
 
-Como usuario, quiero procesar el pago asociado a una reserva, para poder confirmar el uso del espacio.
+As a user, I want to process the payment associated with a reservation, so that I can confirm the use of the space.
 
 ### Bounded Context
 
-Gestión de Pagos.
+Payment Management.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Pago iniciado
+#### AC-001 — Payment started
 
-Dada una reserva en estado que permite pago,
-cuando el usuario solicite el pago,
-entonces el sistema debe crear una operación de pago y asociarla a la reserva.
+Given a reservation in a state that allows payment,
+when the user requests the payment,
+then the system must create a payment operation and associate it with the reservation.
 
-#### CA-002 — Idempotencia
+#### AC-002 — Idempotence
 
-Dada una misma operación de pago enviada más de una vez,
-cuando se procese,
-entonces el sistema no debe generar múltiples efectos financieros.
+Given the same payment operation submitted more than once,
+when it is processed,
+then the system must not generate multiple financial effects.
 
-#### CA-003 — Resultado de pago
+#### AC-003 — Payment result
 
-Cuando el procesamiento del pago finalice,
-entonces el Servicio de Pagos debe publicar un evento de resultado, por ejemplo PaymentConfirmed o PaymentFailed.
+When payment processing finishes,
+then the Payment Service must publish a result event, for example PaymentConfirmed or PaymentFailed.
 
-#### CA-004 — Reserva inexistente o no pagable
+#### AC-004 — Reservation missing or not payable
 
-Dada una reserva inexistente o que no admite pago,
-cuando se solicite el pago,
-entonces el sistema debe rechazar la operación.
+Given a reservation that does not exist or does not allow payment,
+when payment is requested,
+then the system must reject the operation.
 
 ---
 
-## HU-RES-006 — Confirmar una reserva después de un pago exitoso
+## HU-RES-006 — Confirm a reservation after successful payment
 
-### Historia
+### Story
 
-Como usuario, quiero que mi reserva se confirme después de un pago exitoso, para quedar con el espacio asignado de forma definitiva.
+As a user, I want my reservation to be confirmed after a successful payment, so that the space is assigned definitively.
 
 ### Bounded Context
 
-Gestión de Reservas.
+Reservation Management.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Confirmación por pago exitoso
+#### AC-001 — Confirmation after successful payment
 
-Dada una reserva pendiente de pago,
-cuando se reciba el evento PaymentConfirmed,
-entonces la reserva debe pasar al estado CONFIRMADA.
+Given a reservation pending payment,
+when the PaymentConfirmed event is received,
+then the reservation must move to CONFIRMED.
 
-#### CA-002 — Pago fallido
+#### AC-002 — Failed payment
 
-Dada una reserva pendiente de pago,
-cuando se reciba el evento PaymentFailed,
-entonces la reserva no debe pasar a CONFIRMADA.
+Given a reservation pending payment,
+when the PaymentFailed event is received,
+then the reservation must not move to CONFIRMED.
 
-#### CA-003 — Evento duplicado
+#### AC-003 — Duplicate event
 
-Dado que PaymentConfirmed se recibe dos veces,
-cuando se procese el segundo evento,
-entonces el sistema no debe generar una segunda confirmación ni efectos duplicados.
+Given that PaymentConfirmed is received twice,
+when the second event is processed,
+then the system must not generate a second confirmation or duplicate effects.
 
-#### CA-004 — Transición inválida
+#### AC-004 — Invalid transition
 
-Dada una reserva CANCELADA,
-cuando se reciba un evento de pago,
-entonces el sistema no debe confirmarla.
+Given a CANCELLED reservation,
+when a payment event is received,
+then the system must not confirm it.
 
 ---
 
-## HU-RES-007 — Recibir una notificación cuando una reserva cambie de estado
+## HU-RES-007 — Receive a notification when a reservation changes its status
 
-### Historia
+### Story
 
-Como usuario, quiero recibir una notificación cuando mi reserva cambie de estado, para mantenerme informado sin consultar permanentemente el sistema.
+As a user, I want to receive a notification when my reservation changes its status, so that I stay informed without constantly querying the system.
 
 ### Bounded Context
 
-Gestión de Notificaciones.
+Notification Management.
 
-### Prioridad
+### Priority
 
-Media.
+Medium.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Notificación por confirmación
+#### AC-001 — Notification on confirmation
 
-Dada una reserva que pasa a CONFIRMADA,
-cuando se publique ReservationConfirmed,
-entonces el Servicio de Notificaciones debe crear y entregar una notificación al usuario.
+Given a reservation that moves to CONFIRMED,
+when ReservationConfirmed is published,
+then the Notification Service must create and deliver a notification to the user.
 
-#### CA-002 — Notificación por cancelación
+#### AC-002 — Notification on cancellation
 
-Dada una reserva cancelada,
-cuando se publique ReservationCancelled,
-entonces el usuario debe recibir una notificación de cancelación.
+Given a cancelled reservation,
+when ReservationCancelled is published,
+then the user must receive a cancellation notification.
 
-#### CA-003 — Fallo de notificación
+#### AC-003 — Notification failure
 
-Dado un fallo en la entrega de la notificación,
-cuando la reserva ya esté confirmada,
-entonces la reserva no debe invalidarse.
+Given a failure in notification delivery,
+when the reservation is already confirmed,
+then the reservation must not be invalidated.
 
-#### CA-004 — Eventos duplicados
+#### AC-004 — Duplicate events
 
-Dado un evento de notificación duplicado,
-cuando se procese,
-entonces el sistema no debe generar entregas duplicadas incontroladas.
+Given a duplicate notification event,
+when it is processed,
+then the system must not generate uncontrolled duplicate deliveries.
 
 ---
 
-## HU-RES-008 — Gestionar espacios reservables y sus reglas de disponibilidad
+## HU-RES-008 — Manage reservable spaces and their availability rules
 
-### Historia
+### Story
 
-Como administrador de espacios, quiero registrar y actualizar espacios y sus reglas de disponibilidad, para controlar qué recursos pueden reservarse y en qué periodos.
+As a space administrator, I want to register and update spaces and their availability rules, so that I can control which resources can be reserved and in which periods.
 
 ### Bounded Context
 
-Gestión de Espacios.
+Space Management.
 
-### Prioridad
+### Priority
 
-Alta.
+High.
 
-### Criterios de aceptación
+### Acceptance criteria
 
-#### CA-001 — Registrar espacio
+#### AC-001 — Register space
 
-Dado un administrador autenticado y datos válidos del espacio,
-cuando registre un espacio,
-entonces el sistema debe persistirlo y dejarlo consultable.
+Given an authenticated administrator and valid space data,
+when they register a space,
+then the system must persist it and make it queryable.
 
-#### CA-002 — Actualizar espacio
+#### AC-002 — Update space
 
-Dado un espacio existente,
-cuando el administrador actualice su información,
-entonces los cambios deben quedar persistidos sin afectar reservas confirmadas de forma inconsistente.
+Given an existing space,
+when the administrator updates its information,
+then the changes must be persisted without inconsistently affecting confirmed reservations.
 
-#### CA-003 — Bloquear periodo
+#### AC-003 — Block period
 
-Dado un espacio existente,
-cuando el administrador bloquee un periodo,
-entonces ese periodo no debe aparecer como disponible para nuevas reservas.
+Given an existing space,
+when the administrator blocks a period,
+then that period must not appear as available for new reservations.
 
-#### CA-004 — Datos inválidos
+#### AC-004 — Invalid data
 
-Dado un registro o actualización con datos inválidos,
-cuando se envíe la solicitud,
-entonces el sistema debe rechazarla indicando el error.
+Given a registration or update with invalid data,
+when the request is submitted,
+then the system must reject it and indicate the error.
 
 ---
 
 ## Definition of Ready
 
-Una historia podrá entrar al Sprint cuando:
+A story may enter the Sprint when:
 
-- El objetivo de negocio esté claramente definido.
-- El bounded context responsable esté identificado.
-- Los criterios de aceptación sean verificables.
-- Las dependencias conocidas estén identificadas.
-- El alcance sea suficientemente pequeño para el Sprint.
-- No existan preguntas críticas sin resolver que impidan su implementación.
+- The business goal is clearly defined.
+- The responsible bounded context is identified.
+- The acceptance criteria are testable.
+- Known dependencies are identified.
+- The scope is small enough for the Sprint.
+- There are no unresolved critical questions that block implementation.
 
 ## Definition of Done
 
-Una historia se considerará terminada cuando:
+A story is considered done when:
 
-- La funcionalidad cumpla sus criterios de aceptación.
-- El código esté implementado.
-- Las pruebas correspondientes estén agregadas.
-- No existan errores críticos conocidos.
-- El cambio haya sido revisado mediante Pull Request.
-- La documentación necesaria haya sido actualizada.
-- El cambio esté integrado en la rama correspondiente.
-- La evidencia de la historia esté registrada en el estado semanal.
+- The functionality meets its acceptance criteria.
+- The code is implemented.
+- The corresponding tests are added.
+- There are no known critical errors.
+- The change has been reviewed through a Pull Request.
+- The necessary documentation has been updated.
+- The change is integrated into the corresponding branch.
+- The story evidence is recorded in the weekly status.
 
-Las historias arquitectónicas HU-ARC-001 a HU-ARC-003 y HU-ADR-001 acompañan la definición de la arquitectura y no se desarrollan como funcionalidades de producto independientes.
+Architectural stories HU-ARC-001 to HU-ARC-003 and HU-ADR-001 support the architecture definition and are not developed as independent product features.

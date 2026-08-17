@@ -1,462 +1,460 @@
-# ADR-001: Arquitectura basada en microservicios
+# ADR-001: Microservices architecture
 
-- Estado: Aceptado
-- Fecha: 2026-08-17
-- Decisor: Juan Sebastian Osorio Fierro
-- Ámbito: Arquitectura general de la Plataforma Distribuida de Reservas
-- Historia: HU-ADR-001 — Formalizar la decisión arquitectónica
+- Status: Accepted
+- Date: 2026-08-17
+- Decision maker: Juan Sebastian Osorio Fierro
+- Scope: Overall architecture of the Distributed Reservation Platform
+- Story: HU-ADR-001 — Formalize the architectural decision
 
-## 1. Contexto
+## 1. Context
 
-La Plataforma Distribuida de Reservas tiene como objetivo gestionar espacios reservables, disponibilidad, reservas, pagos y notificaciones.
+The Distributed Reservation Platform manages reservable spaces, availability, reservations, payments, and notifications.
 
-El proyecto se desarrolla como parte de la asignatura de Sistemas Distribuidos y debe demostrar conceptos relacionados con sistemas distribuidos, comunicación entre servicios, independencia de componentes, tolerancia a fallos, consistencia, escalabilidad y evolución arquitectónica.
+The project belongs to the Distributed Systems course and must demonstrate distributed-system concepts: communication between services, component independence, fault tolerance, consistency, scalability, and architectural evolution.
 
-El proyecto será desarrollado inicialmente por un único estudiante, por lo que la arquitectura debe mantener un alcance controlado y evitar una complejidad que no pueda ser implementada, probada y documentada durante el periodo académico disponible.
+The project will initially be developed by a single student, so the architecture must stay within a controlled scope that can be implemented, tested, and documented during the academic term.
 
-Al mismo tiempo, la arquitectura debe permitir que el sistema pueda crecer incorporando nuevas capacidades de negocio sin tener que reconstruir completamente la solución.
+At the same time, the architecture must allow the system to grow by adding new business capabilities without rebuilding the whole solution.
 
-Durante el análisis inicial del dominio se identificaron las siguientes capacidades principales:
+The initial domain analysis identified these main capabilities:
 
-- Identidad y acceso.
-- Gestión de espacios.
-- Gestión de reservas.
-- Gestión de pagos.
-- Gestión de notificaciones.
+- Identity and access.
+- Space management.
+- Reservation management.
+- Payment management.
+- Notification management.
 
-Estas capacidades presentan responsabilidades diferentes y pueden evolucionar de manera independiente.
+These capabilities have different responsibilities and can evolve independently.
 
-## 2. Problema
+## 2. Problem
 
-Se debe seleccionar una arquitectura que permita demostrar los principios de sistemas distribuidos sin introducir una cantidad innecesaria de complejidad.
+An architecture must be selected that demonstrates distributed-systems principles without adding unnecessary complexity.
 
-La arquitectura debe permitir:
+The architecture must:
 
-- Separar responsabilidades de negocio.
-- Mantener límites claros entre capacidades.
-- Evitar una base de datos compartida entre servicios.
-- Permitir comunicación síncrona y asíncrona.
-- Aislar fallos entre componentes.
-- Permitir escalabilidad independiente cuando sea necesario.
-- Facilitar la incorporación futura de nuevas capacidades.
-- Mantener el proyecto implementable por un único desarrollador.
-- Mantener una documentación arquitectónica clara.
+- Separate business responsibilities.
+- Keep clear boundaries between capabilities.
+- Avoid a shared database between services.
+- Allow synchronous and asynchronous communication.
+- Isolate failures between components.
+- Allow independent scalability when needed.
+- Make it easier to add future capabilities.
+- Remain implementable by a single developer.
+- Keep architectural documentation clear.
 
-## 3. Decisión
+## 3. Decision
 
-Se utilizará una arquitectura basada en microservicios.
+A microservices architecture will be used.
 
-Cada microservicio será responsable de una capacidad de negocio definida y tendrá un límite de responsabilidad explícito.
+Each microservice will be responsible for a defined business capability and will have an explicit responsibility boundary.
 
-Los microservicios iniciales serán:
+The initial microservices will be:
 
-1. Servicio de Identidad.
-2. Servicio de Espacios.
-3. Servicio de Reservas.
-4. Servicio de Pagos.
-5. Servicio de Notificaciones.
+1. Identity Service.
+2. Space Service.
+3. Reservation Service.
+4. Payment Service.
+5. Notification Service.
 
-Estos servicios corresponden a los bounded contexts identificados en el Context Map inicial.
+These services correspond to the bounded contexts identified in the initial Context Map.
 
-La arquitectura no considera que la cantidad de microservicios sea un objetivo en sí mismo.
+The number of microservices is not a goal by itself.
 
-La incorporación de un nuevo microservicio deberá justificarse mediante una responsabilidad de negocio clara, propiedad independiente de datos y una necesidad real de evolución, escalabilidad o despliegue independiente.
+A new microservice may be added only when it has a clear business responsibility, independent data ownership, and a real need for independent evolution, scalability, or deployment.
 
-## 4. Justificación de la decisión
+## 4. Rationale
 
-La arquitectura de microservicios se selecciona porque el proyecto necesita demostrar características propias de los sistemas distribuidos.
+Microservices are selected because the project must demonstrate characteristics of distributed systems, including:
 
-Entre ellas:
+- Communication between independent processes.
+- Synchronous communication through APIs.
+- Asynchronous communication through events.
+- Independent data ownership.
+- Distributed consistency.
+- Idempotence.
+- Failure isolation.
+- Independent scalability.
+- Independent deployment.
+- Independent evolution of capabilities.
 
-- Comunicación entre procesos independientes.
-- Comunicación síncrona mediante APIs.
-- Comunicación asíncrona mediante eventos.
-- Propiedad independiente de datos.
-- Consistencia distribuida.
-- Idempotencia.
-- Aislamiento de fallos.
-- Escalabilidad independiente.
-- Despliegue independiente.
-- Evolución independiente de capacidades.
+The architecture also allows the project to grow without turning the system into a single component that is hard to maintain.
 
-La arquitectura también permite que el proyecto pueda crecer progresivamente sin convertir el sistema en un único componente difícil de mantener.
+## 5. Alternatives considered
 
-## 5. Alternativas consideradas
+### 5.1 Traditional monolith
 
-### 5.1 Monolito tradicional
+One alternative is to implement the whole system as a single application.
 
-Una primera alternativa sería implementar todo el sistema como una única aplicación.
+#### Advantages
 
-#### Ventajas
+- Lower initial complexity.
+- Faster development.
+- A single running process.
+- A single database.
+- Lower communication complexity.
 
-- Menor complejidad inicial.
-- Desarrollo más rápido.
-- Un único proceso de ejecución.
-- Una única base de datos.
-- Menor complejidad de comunicación.
+#### Disadvantages
 
-#### Desventajas
+- Does not adequately demonstrate communication between microservices.
+- There is no real isolation between capabilities.
+- Failures can affect the whole application.
+- Scaling must be applied to the entire system.
+- There is no independent deployment per capability.
+- It does not adequately demonstrate distributed consistency and asynchronous communication.
 
-- No permite demostrar adecuadamente comunicación entre microservicios.
-- No existe aislamiento real entre capacidades.
-- Las fallas pueden afectar a toda la aplicación.
-- El escalamiento debe realizarse sobre todo el sistema.
-- No existe despliegue independiente por capacidad.
-- No permite demostrar adecuadamente consistencia distribuida y comunicación asíncrona.
+#### Decision
 
-#### Decisión
+Rejected.
 
-Descartado.
+Although it would be simpler for a single developer, it does not meet the main academic goal of the project.
 
-Aunque sería más sencillo para un único desarrollador, no cumple adecuadamente el objetivo académico principal del proyecto.
+### 5.2 Modular monolith
 
-### 5.2 Monolito modular
+Another alternative is a single deployment with clearly separated internal modules.
 
-Otra alternativa sería implementar un único despliegue con módulos internos claramente separados.
+#### Advantages
 
-#### Ventajas
+- Keeps domain boundaries.
+- Lower operational complexity.
+- Easier testing.
+- Supports an orderly initial evolution.
+- Can be suitable for small systems.
 
-- Mantiene límites de dominio.
-- Menor complejidad operacional.
-- Facilita las pruebas.
-- Permite una evolución inicial ordenada.
-- Puede ser adecuado para sistemas pequeños.
+#### Disadvantages
 
-#### Desventajas
+- Modules still share the same process.
+- There is no real deployment independence.
+- Distributed communication is not fully demonstrated.
+- Infrastructure failures can affect the whole process.
+- Independent scalability of each capability is limited.
 
-- Los módulos siguen compartiendo el mismo proceso.
-- No existe independencia real de despliegue.
-- No permite demostrar completamente la comunicación distribuida.
-- Las fallas de infraestructura pueden afectar al proceso completo.
-- La escalabilidad independiente de cada capacidad es limitada.
+#### Decision
 
-#### Decisión
+Rejected as the final architecture.
 
-Descartado como arquitectura final.
+Principles of the modular monolith, such as clear boundaries and separation of responsibilities, will still be used inside each microservice.
 
-Algunos principios del monolito modular, como los límites claros y la separación de responsabilidades, sí serán utilizados dentro de cada microservicio.
+### 5.3 Microservices
 
-### 5.3 Microservicios
+The third alternative separates the main business capabilities into independent services.
 
-La tercera alternativa consiste en separar las principales capacidades de negocio en servicios independientes.
+#### Advantages
 
-#### Ventajas
+- Allows independent deployment.
+- Allows independent scalability.
+- Makes failure isolation easier.
+- Allows synchronous and asynchronous communication.
+- Each service can own its data.
+- Demonstrates distributed-systems concepts.
+- Makes it easier to add new capabilities.
 
-- Permite independencia de despliegue.
-- Permite escalabilidad independiente.
-- Facilita el aislamiento de fallos.
-- Permite utilizar comunicación síncrona y asíncrona.
-- Cada servicio puede ser propietario de sus datos.
-- Permite demostrar conceptos propios de sistemas distribuidos.
-- Facilita la incorporación de nuevas capacidades.
+#### Disadvantages
 
-#### Desventajas
+- Higher operational complexity.
+- Distributed communication.
+- Possible network failures.
+- Harder integration testing.
+- Need for observability.
+- Need to handle distributed consistency.
+- More components to maintain.
 
-- Mayor complejidad operacional.
-- Comunicación distribuida.
-- Posibilidad de fallos de red.
-- Mayor dificultad de pruebas de integración.
-- Necesidad de observabilidad.
-- Necesidad de manejar consistencia distribuida.
-- Mayor cantidad de componentes que mantener.
+#### Decision
 
-#### Decisión
+Selected.
 
-Seleccionado.
+The extra complexity is justified by the academic and architectural goals of the project.
 
-La complejidad adicional está justificada por los objetivos académicos y arquitectónicos del proyecto.
+## 6. Microservice boundaries
 
-## 6. Límites de los microservicios
+The initial boundaries come from the bounded contexts.
 
-Los límites iniciales se derivan de los bounded contexts.
+### Identity Service
 
-### Servicio de Identidad
+Responsibility:
 
-Responsabilidad:
+- Users.
+- Authentication.
+- Authorization.
+- Roles and permissions.
 
-- Usuarios.
-- Autenticación.
-- Autorización.
-- Roles y permisos.
+It will not be responsible for reservations, payments, or spaces.
 
-No será responsable de reservas, pagos o espacios.
+### Space Service
 
-### Servicio de Espacios
+Responsibility:
 
-Responsabilidad:
+- Reservable spaces.
+- Availability.
+- Blocked periods.
 
-- Espacios reservables.
-- Disponibilidad.
-- Periodos bloqueados.
+It will not be responsible for creating or managing reservations.
 
-No será responsable de crear o administrar reservas.
+### Reservation Service
 
-### Servicio de Reservas
+Responsibility:
 
-Responsabilidad:
+- Reservation creation.
+- States.
+- Confirmation.
+- Cancellation.
+- Reservation lifecycle.
 
-- Creación de reservas.
-- Estados.
-- Confirmación.
-- Cancelación.
-- Ciclo de vida de la reserva.
+It will be the main coordinator of the business flow.
 
-Será el principal coordinador del flujo de negocio.
+### Payment Service
 
-### Servicio de Pagos
+Responsibility:
 
-Responsabilidad:
+- Payment operations.
+- Payment states.
+- Transaction identifiers.
+- Payment-related events.
 
-- Operaciones de pago.
-- Estados de pago.
-- Identificadores de transacción.
-- Eventos relacionados con pagos.
+It will not be responsible for the full reservation lifecycle.
 
-No será responsable del ciclo de vida completo de la reserva.
+### Notification Service
 
-### Servicio de Notificaciones
+Responsibility:
 
-Responsabilidad:
+- Receiving events.
+- Creating notifications.
+- Delivery.
+- Delivery status.
 
-- Recepción de eventos.
-- Creación de notificaciones.
-- Entrega.
-- Estado de entrega.
+It will not be responsible for modifying reservations or payments directly.
 
-No será responsable de modificar directamente reservas o pagos.
+## 7. Data ownership
 
-## 7. Propiedad de los datos
+Each microservice will own its data.
 
-Cada microservicio será propietario de sus datos.
+The initial distribution is:
 
-La distribución inicial será:
-
-| Servicio       | Datos principales                        |
+| Service        | Main data                                |
 | -------------- | ---------------------------------------- |
-| Identidad      | Usuarios, credenciales, roles y permisos |
-| Espacios       | Espacios, disponibilidad y bloqueos      |
-| Reservas       | Reservas y estados                       |
-| Pagos          | Pagos y estados                          |
-| Notificaciones | Notificaciones y entregas                |
+| Identity       | Users, credentials, roles, and permissions |
+| Spaces         | Spaces, availability, and blocks         |
+| Reservations   | Reservations and states                  |
+| Payments       | Payments and states                      |
+| Notifications  | Notifications and deliveries             |
 
-No se permitirá que un microservicio consulte directamente las tablas de otro microservicio.
+A microservice must not query another microservice's tables directly.
 
-La comunicación de información entre servicios se realizará mediante:
+Information between services will be exchanged through:
 
 - APIs.
-- Eventos.
-- Contratos explícitos.
+- Events.
+- Explicit contracts.
 
-## 8. Estrategia de comunicación
+## 8. Communication strategy
 
-Se utilizarán dos mecanismos principales.
+Two main mechanisms will be used.
 
-### Comunicación síncrona
+### Synchronous communication
 
-Se utilizará cuando el servicio consumidor necesite una respuesta inmediata.
+It will be used when the consuming service needs an immediate response.
 
-Ejemplo:
+Example:
 
-Servicio de Reservas
+Reservation Service
 |
-| Consulta disponibilidad
+| Availability query
 v
-Servicio de Espacios
+Space Service
 
-Otro ejemplo:
+Another example:
 
-Servicio de Reservas
+Reservation Service
 |
-| Solicitud de pago
+| Payment request
 v
-Servicio de Pagos
+Payment Service
 
-La comunicación síncrona inicial se implementará mediante APIs REST.
+The initial synchronous communication will be implemented with REST APIs.
 
-### Comunicación asíncrona
+### Asynchronous communication
 
-Se utilizará cuando una operación pueda continuar de manera desacoplada.
+It will be used when an operation can continue in a decoupled way.
 
-Ejemplo:
+Example:
 
-Servicio de Pagos
+Payment Service
 |
 | PaymentConfirmed
 v
-Servicio de Reservas
+Reservation Service
 
-Otro ejemplo:
+Another example:
 
-Servicio de Reservas
+Reservation Service
 |
 | ReservationConfirmed
 v
-Servicio de Notificaciones
+Notification Service
 
-El mecanismo de mensajería será definido en una decisión arquitectónica posterior cuando se establezcan los requisitos técnicos de infraestructura.
+The messaging mechanism will be defined in a later architectural decision when the infrastructure requirements are established.
 
-## 9. Consistencia
+## 9. Consistency
 
-La arquitectura utilizará diferentes estrategias de consistencia.
+The architecture will use different consistency strategies.
 
-### Operaciones críticas
+### Critical operations
 
-Las operaciones relacionadas con:
+Operations related to:
 
-- Disponibilidad.
-- Creación de reservas.
-- Confirmación de reservas.
-- Estados críticos de pago.
+- Availability.
+- Reservation creation.
+- Reservation confirmation.
+- Critical payment states.
 
-deben garantizar que no se produzcan inconsistencias graves como:
+must prevent serious inconsistencies such as:
 
-- Doble reserva.
-- Pago duplicado.
-- Estados imposibles.
+- Double booking.
+- Duplicate payment.
+- Impossible states.
 
-### Operaciones no críticas
+### Non-critical operations
 
-Las notificaciones, reportes y capacidades analíticas podrán utilizar consistencia eventual.
+Notifications, reports, and analytical capabilities may use eventual consistency.
 
-Por ejemplo:
+For example:
 
-Una reserva puede estar confirmada aunque la notificación todavía se encuentre pendiente de entrega.
+A reservation may be confirmed even if the notification is still pending delivery.
 
-## 10. Idempotencia
+## 10. Idempotence
 
-Las operaciones distribuidas deberán considerar la posibilidad de recibir solicitudes o eventos duplicados.
+Distributed operations must consider duplicate requests or events.
 
-El procesamiento de eventos importantes deberá ser idempotente cuando corresponda.
+Processing of important events must be idempotent when applicable.
 
-Por ejemplo:
+For example:
 
-Si el evento PaymentConfirmed es recibido dos veces, el sistema no debe generar dos confirmaciones financieras ni producir efectos duplicados.
+If PaymentConfirmed is received twice, the system must not generate two financial confirmations or duplicate effects.
 
-La implementación concreta de la idempotencia será definida durante el desarrollo del servicio correspondiente.
+The concrete implementation of idempotence will be defined while developing the corresponding service.
 
-## 11. Aislamiento de fallos
+## 11. Failure isolation
 
-Los servicios deben minimizar el impacto de fallos entre ellos.
+Services must minimize the impact of failures on each other.
 
-Por ejemplo:
+For example:
 
-- Un fallo del Servicio de Notificaciones no debe cancelar una reserva confirmada.
-- Un evento de pago fallido debe poder ser procesado sin afectar la disponibilidad del Servicio de Espacios.
-- Un servicio temporalmente indisponible no debe provocar acceso directo a su base de datos desde otro servicio.
-- Los consumidores de eventos deben manejar eventos duplicados cuando sea necesario.
+- A failure in the Notification Service must not cancel a confirmed reservation.
+- A failed payment event must be processable without affecting Space Service availability.
+- A temporarily unavailable service must not cause another service to access its database directly.
+- Event consumers must handle duplicate events when necessary.
 
-El comportamiento exacto ante fallos será documentado y probado durante la implementación.
+The exact failure behavior will be documented and tested during implementation.
 
-## 12. Escalabilidad
+## 12. Scalability
 
-La arquitectura permitirá escalar servicios de forma independiente.
+The architecture will allow services to scale independently.
 
-Por ejemplo:
+For example:
 
-Si la consulta de disponibilidad recibe una carga superior a la creación de reservas, el Servicio de Espacios podrá escalarse independientemente.
+If availability queries receive more load than reservation creation, the Space Service can be scaled independently.
 
-De igual forma, si el procesamiento de notificaciones aumenta significativamente, el Servicio de Notificaciones podrá aumentar sus instancias sin escalar todos los demás servicios.
+Likewise, if notification processing grows significantly, the Notification Service can add instances without scaling every other service.
 
-La escalabilidad no implica agregar microservicios innecesarios.
+Scalability does not mean adding unnecessary microservices.
 
-Cada nuevo servicio debe estar justificado por una capacidad de negocio o una necesidad técnica real.
+Each new service must be justified by a business capability or a real technical need.
 
-## 13. Extensibilidad
+## 13. Extensibility
 
-La arquitectura permitirá agregar nuevas capacidades mediante nuevos servicios cuando sea necesario.
+The architecture will allow new capabilities to be added as new services when needed.
 
-Ejemplos potenciales:
+Potential examples:
 
-- Servicio de Reseñas.
-- Servicio de Promociones.
-- Servicio de Analítica.
-- Servicio de Búsqueda.
-- Servicio de Fidelización.
-- Servicio de Auditoría.
+- Review Service.
+- Promotion Service.
+- Analytics Service.
+- Search Service.
+- Loyalty Service.
+- Audit Service.
 
-Estos servicios no forman parte del MVP inicial.
+These services are not part of the initial MVP.
 
-La arquitectura actual deberá permitir incorporarlos sin modificar directamente las bases de datos de los servicios existentes.
+The current architecture must allow them to be added without directly modifying the databases of existing services.
 
-## 14. Consecuencias positivas
+## 14. Positive consequences
 
-La decisión proporciona los siguientes beneficios:
+The decision provides:
 
-- Cumplimiento del enfoque de Sistemas Distribuidos.
-- Límites de negocio claramente definidos.
-- Independencia de despliegue.
-- Escalabilidad independiente.
-- Aislamiento de fallos.
-- Comunicación síncrona y asíncrona.
-- Propiedad independiente de datos.
-- Mayor facilidad para incorporar nuevas capacidades.
-- Posibilidad de demostrar patrones y problemas reales de sistemas distribuidos.
-- Arquitectura preparada para evolución futura.
+- Alignment with the Distributed Systems course.
+- Clearly defined business boundaries.
+- Independent deployment.
+- Independent scalability.
+- Failure isolation.
+- Synchronous and asynchronous communication.
+- Independent data ownership.
+- Easier addition of new capabilities.
+- The ability to demonstrate real distributed-systems patterns and problems.
+- An architecture prepared for future evolution.
 
-## 15. Consecuencias negativas
+## 15. Negative consequences
 
-La decisión también introduce costos:
+The decision also introduces costs:
 
-- Mayor complejidad de desarrollo.
-- Mayor complejidad de despliegue.
-- Necesidad de administrar varios servicios.
-- Mayor complejidad de pruebas.
-- Problemas de latencia de red.
-- Fallos parciales.
-- Necesidad de observabilidad.
-- Necesidad de manejar consistencia distribuida.
-- Mayor esfuerzo de documentación.
+- Higher development complexity.
+- Higher deployment complexity.
+- Need to operate several services.
+- Higher testing complexity.
+- Network latency.
+- Partial failures.
+- Need for observability.
+- Need to handle distributed consistency.
+- Higher documentation effort.
 
-Debido a que el proyecto es desarrollado individualmente, se limitará el MVP para mantener la complejidad bajo control.
+Because the project is developed individually, the MVP will be limited to keep complexity under control.
 
-## 16. Restricciones de alcance
+## 16. Scope constraints
 
-Para evitar que la arquitectura se vuelva inmanejable, se establecen las siguientes restricciones:
+To keep the architecture manageable, the following constraints apply:
 
-- El MVP utilizará inicialmente cinco microservicios candidatos.
-- No se crearán servicios solamente para aumentar el número de microservicios.
-- Las capacidades futuras permanecerán fuera del MVP.
-- Cada servicio deberá tener pruebas automatizadas.
-- Cada servicio deberá tener documentación mínima.
-- Cada servicio deberá tener una responsabilidad claramente delimitada.
-- No se utilizarán bases de datos compartidas.
-- Las decisiones arquitectónicas importantes deberán documentarse mediante ADR.
+- The MVP will initially use five candidate microservices.
+- Services will not be created only to increase the number of microservices.
+- Future capabilities remain outside the MVP.
+- Each service must have automated tests.
+- Each service must have minimum documentation.
+- Each service must have a clearly bounded responsibility.
+- Shared databases will not be used.
+- Important architectural decisions must be documented with ADRs.
 
-## 17. Criterios para agregar un nuevo microservicio
+## 17. Criteria for adding a new microservice
 
-Un nuevo microservicio solamente podrá incorporarse cuando cumpla una o más condiciones justificadas:
+A new microservice may be added only when it meets one or more justified conditions:
 
-1. Representa una capacidad de negocio independiente.
-2. Posee un límite de dominio claro.
-3. Requiere escalabilidad independiente.
-4. Requiere despliegue independiente.
-5. Tiene datos que deben ser administrados por separado.
-6. Reduce significativamente el acoplamiento del sistema.
-7. Permite aislar una responsabilidad con un ciclo de evolución diferente.
+1. It represents an independent business capability.
+2. It has a clear domain boundary.
+3. It requires independent scalability.
+4. It requires independent deployment.
+5. It has data that must be managed separately.
+6. It significantly reduces system coupling.
+7. It isolates a responsibility with a different evolution cycle.
 
-La cantidad de microservicios no será utilizada como métrica de éxito.
+The number of microservices will not be used as a success metric.
 
-## 18. Estado de la decisión
+## 18. Decision status
 
-Aceptado.
+Accepted.
 
-La arquitectura basada en microservicios será utilizada como dirección arquitectónica para la Plataforma Distribuida de Reservas.
+The microservices architecture will be used as the architectural direction for the Distributed Reservation Platform.
 
-Los límites definidos en este ADR corresponden al diseño inicial y podrán ser refinados mediante futuros ADR cuando aparezca nueva información relevante.
+The boundaries defined in this ADR correspond to the initial design and may be refined through future ADRs when new relevant information appears.
 
-## 19. Regla de inmutabilidad
+## 19. Immutability rule
 
-Este ADR, una vez aceptado, **no debe modificarse**.
+Once accepted, this ADR **must not be modified**.
 
-Cualquier cambio posterior a esta decisión arquitectónica deberá documentarse en un nuevo archivo (`adr-002-*.md`) que:
+Any later change to this architectural decision must be documented in a new file (`adr-002-*.md`) that:
 
-- Referencie explícitamente ADR-001 como el registro que se sustituye.
-- Indique qué cambió y por qué.
-- Documente el contexto, la decisión, las alternativas y las consecuencias de la nueva decisión.
+- Explicitly references ADR-001 as the record being replaced.
+- States what changed and why.
+- Documents the context, decision, alternatives, and consequences of the new decision.
 
-## 20. Relación con otros documentos
+## 20. Related documents
 
-Esta decisión está relacionada con:
+This decision is related to:
 
 - [`context-map.md`](./context-map.md)
 - [`user-stories.md`](./user-stories.md)
@@ -464,6 +462,6 @@ Esta decisión está relacionada con:
 - [`README.md`](./README.md)
 - [`README.es.md`](./README.es.md)
 
-El Context Map define las relaciones entre los bounded contexts.
+The Context Map defines the relationships between bounded contexts.
 
-Este ADR documenta la decisión de utilizar dichos límites como base para la arquitectura de microservicios.
+This ADR documents the decision to use those boundaries as the basis for the microservices architecture.

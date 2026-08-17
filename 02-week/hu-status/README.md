@@ -45,7 +45,7 @@
 
 - Create the GitHub Project **Distributed Reservation Platform - Sprint** with columns Backlog, Ready, In progress, In review, and Done.
 - Set WIP limits: Ready = 5, In progress = 2, In review = 3.
-- Define the Sprint Goal and a small Sprint Backlog, starting with Gestión de Espacios.
+- Define the Sprint Goal and a small Sprint Backlog, starting with Space Management.
 - Create the first HU branch (`hu-xxx-dev`) and open a Pull Request to `develop`.
 - Begin the first microservice after the architectural boundaries remain stable.
 

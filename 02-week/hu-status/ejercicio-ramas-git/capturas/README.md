@@ -1,1 +1,1 @@
-Las capturas propias del ejercicio de ramas se guardan aquí. No se copian evidencias de otros repositorios.
+Own screenshots of the Git branching exercise are stored here. Evidence from other repositories is not copied.

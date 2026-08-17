@@ -1,10 +1,10 @@
-# Ejercicio de ramas Git — Semana 02
+# Git branching exercise — Week 02
 
-Práctica de la Sesión 2 para aplicar el flujo Git del curso sobre la Plataforma Distribuida de Reservas.
+Session 2 practice of the course Git workflow applied to the Distributed Reservation Platform.
 
-El ejercicio no modifica `02-week/01-session/` ni `02-week/02-session/`. La evidencia queda en esta carpeta.
+This exercise does not modify `02-week/01-session/` or `02-week/02-session/`. The evidence stays in this folder.
 
-## Flujo practicado
+## Practiced flow
 
 ```text
 main
@@ -13,33 +13,33 @@ main
               └── hu-xxx-dev
 ```
 
-Por ambiente:
+Per environment:
 
-- `develop` ← rama de HU `hu-xxx-dev` ← Pull Request a `develop`
-- `qa` ← integración selectiva con cherry-pick
-- `main` ← integración selectiva con cherry-pick
+- `develop` ← HU branch `hu-xxx-dev` ← Pull Request to `develop`
+- `qa` ← selective integration with cherry-pick
+- `main` ← selective integration with cherry-pick
 
-Los commits deben seguir Conventional Commits: `type(scope): summary`.
+Commits must follow Conventional Commits: `type(scope): summary`.
 
-## Qué se practicó
+## What was practiced
 
-1. Crear las ramas base `qa` y `develop` a partir de `main`.
-2. Crear una rama de historia de usuario desde `develop`.
-3. Registrar un cambio y subirlo a la rama de la HU.
-4. Abrir un Pull Request hacia `develop`.
-5. Verificar que `develop` contiene el commit de la HU.
-6. Llevar ese commit a `qa` con cherry-pick, sin fusionar toda `develop`.
-7. Llevar el mismo commit a `main` con cherry-pick.
+1. Create the base branches `qa` and `develop` from `main`.
+2. Create a user-story branch from `develop`.
+3. Record a change and push it to the HU branch.
+4. Open a Pull Request to `develop`.
+5. Verify that `develop` contains the HU commit.
+6. Bring that commit to `qa` with cherry-pick, without merging all of `develop`.
+7. Bring the same commit to `main` with cherry-pick.
 
-Cherry-pick se usó para aplicar un commit puntual en otra rama. No equivale a un merge de toda la rama origen.
+Cherry-pick was used to apply a specific commit onto another branch. It is not equivalent to merging the whole source branch.
 
-## Relación con el proyecto
+## Relationship with the project
 
-Este flujo es el que se usará cuando empiece el primer Sprint de la Plataforma Distribuida de Reservas. Las HUs de producto (`HU-RES-001` en adelante) se implementarán en ramas `hu-xxx-dev`, con PR hacia `develop` y promoción controlada a `qa` y `main`.
+This is the flow that will be used when the first Sprint of the Distributed Reservation Platform starts. Product stories (`HU-RES-001` onward) will be implemented on `hu-xxx-dev` branches, with a Pull Request to `develop` and controlled promotion to `qa` and `main`.
 
-## Capturas pendientes
+## Pending screenshots
 
-Las capturas del ejercicio propio deben guardarse en `capturas/` con estos nombres:
+Own screenshots of the exercise must be stored in `capturas/` with these names:
 
 1. `01-ramas-base-main-qa-develop.png`
 2. `02-rama-historia-usuario.png`
@@ -49,4 +49,4 @@ Las capturas del ejercicio propio deben guardarse en `capturas/` con estos nombr
 6. `06-cherry-pick-hacia-qa.png`
 7. `07-cherry-pick-hacia-main.png`
 
-También se debe agregar la URL del repositorio de práctica cuando esté disponible.
+The URL of the practice repository must also be added when it is available.
