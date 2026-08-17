@@ -73,7 +73,7 @@ Notes on the unchecked items:
 
 ## 6. Evidence links
 
-- Session summaries: [`resumen-sesiones/resumen_sistemas_distribuidos_semana_2.svg`](./resumen-sesiones/resumen_sistemas_distribuidos_semana_2.svg)
+- Session summaries: [`resumen-sesiones/week-02-session-summary.svg`](./resumen-sesiones/week-02-session-summary.svg)
 - Git branching exercise: [`ejercicio-ramas-git/README.md`](./ejercicio-ramas-git/README.md)
 - Product brief: [`../../01-week/hu-status/prd.md`](../../01-week/hu-status/prd.md)
 - Context Map: [`context-map.md`](./context-map.md)
