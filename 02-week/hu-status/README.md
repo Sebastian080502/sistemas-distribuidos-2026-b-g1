@@ -13,6 +13,12 @@
 - SPRINT_GOAL: Define the initial domain boundaries, architectural direction, Git workflow, and backlog required to prepare the first formal development Sprint.
 <!-- CONFIG-END -->
 
+## Project Board
+
+| Board Name | URL |
+| ---------- | --- |
+| Distributed Reservation Platform - Sprint | https://github.com/users/Sebastian080502/projects/2 |
+
 ## 1. User stories worked this week
 
 | HU ID      | Title                                                                     | Status (todo/doing/done) | Evidence (PR or commit URL)                                    |
@@ -32,19 +38,18 @@
 - Documented synchronous REST calls for immediate queries and asynchronous events for payments, reservation changes, and notifications.
 - Formalized the microservices decision in ADR-001, including alternatives, consequences, and the immutability rule.
 - Converted the architectural decision into testable user stories with Given/When/Then acceptance criteria.
+- Created the GitHub Project **Distributed Reservation Platform - Sprint** and linked it to this repository.
 
 ## 3. Blockers and risks
 
 - Week 02 is being recovered after the product definition was completed later than planned.
 - The message broker has not been selected; that decision belongs to a later ADR.
 - The project is developed by one person, so the number of services must stay controlled.
-- GitHub Projects is not published yet because GitHub CLI is not installed in this environment.
 - The first formal development Sprint has not started.
 
 ## 4. Plan for next week
 
-- Create the GitHub Project **Distributed Reservation Platform - Sprint** with columns Backlog, Ready, In progress, In review, and Done.
-- Set WIP limits: Ready = 5, In progress = 2, In review = 3.
+- Group the GitHub Project board by the Board field and apply WIP limits: Ready = 5, In progress = 2, In review = 3.
 - Define the Sprint Goal and a small Sprint Backlog, starting with Space Management.
 - Create the first HU branch (`hu-xxx-dev`) and open a Pull Request to `develop`.
 - Begin the first microservice after the architectural boundaries remain stable.
@@ -61,13 +66,12 @@
 - [x] Context Map published
 - [x] ADR-001 published
 - [x] Testable acceptance criteria completed
-- [ ] GitHub Projects board configured
+- [x] GitHub Projects board configured
 - [ ] First formal Sprint started
 
 Notes on the unchecked items:
 
-- GitHub Projects remains pending: the intended board name is **Distributed Reservation Platform - Sprint**. No board URL is published yet.
-- The first Sprint starts after the GitHub Project exists.
+- The first Sprint starts after the Sprint Goal and a small Sprint Backlog are selected on the board.
 
 ## 6. Evidence links
 
@@ -78,7 +82,7 @@ Notes on the unchecked items:
 - Context Map: [`docs/context-map.md`](./docs/context-map.md)
 - ADR-001: [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md)
 - User stories and acceptance criteria: [`docs/user-stories.md`](./docs/user-stories.md)
-- GitHub Project: pending — board not created yet
+- GitHub Project: https://github.com/users/Sebastian080502/projects/2
 - Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
 - Repository: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
 
