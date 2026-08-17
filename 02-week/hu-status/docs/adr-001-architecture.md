@@ -458,9 +458,9 @@ This decision is related to:
 
 - [`context-map.md`](./context-map.md)
 - [`user-stories.md`](./user-stories.md)
-- [`../../01-week/hu-status/prd.md`](../../01-week/hu-status/prd.md)
-- [`README.md`](./README.md)
-- [`README.es.md`](./README.es.md)
+- [`../../../01-week/hu-status/prd.md`](../../../01-week/hu-status/prd.md)
+- [`../README.md`](../README.md)
+- [`../README.es.md`](../README.es.md)
 
 The Context Map defines the relationships between bounded contexts.
 

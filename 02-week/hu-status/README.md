@@ -17,15 +17,15 @@
 
 | HU ID      | Title                                                                     | Status (todo/doing/done) | Evidence (PR or commit URL)                                    |
 | ---------- | ------------------------------------------------------------------------- | ------------------------ | -------------------------------------------------------------- |
-| HU-ADR-001 | Formalize the architectural decision for the Distributed Reservation Platform | done                     | [`adr-001-architecture.md`](./adr-001-architecture.md)         |
-| HU-ARC-001 | Identify bounded contexts for the reservation platform                    | done                     | [`context-map.md`](./context-map.md)                           |
-| HU-ARC-002 | Define the initial context map and relationships between bounded contexts | done                     | [`context-map.md`](./context-map.md)                           |
-| HU-ARC-003 | Document the initial microservices architectural decision                 | done                     | [`adr-001-architecture.md`](./adr-001-architecture.md)         |
-| HU-ARC-004 | Define testable acceptance criteria for the initial architectural backlog | done                     | [`user-stories.md`](./user-stories.md)                         |
+| HU-ADR-001 | Formalize the architectural decision for the Distributed Reservation Platform | done                     | [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md) |
+| HU-ARC-001 | Identify bounded contexts for the reservation platform                    | done                     | [`docs/context-map.md`](./docs/context-map.md)                   |
+| HU-ARC-002 | Define the initial context map and relationships between bounded contexts | done                     | [`docs/context-map.md`](./docs/context-map.md)                   |
+| HU-ARC-003 | Document the initial microservices architectural decision                 | done                     | [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md) |
+| HU-ARC-004 | Define testable acceptance criteria for the initial architectural backlog | done                     | [`docs/user-stories.md`](./docs/user-stories.md)                 |
 
 ## 2. My individual contribution
 
-- Completed the Git branching exercise of Week 02 Session 02: `main` → `qa` → `develop`, HU branch, Pull Request, and cherry-pick.
+- Completed the Git branching exercise in https://github.com/Sebastian080502/prueba_sistema_distribuidos: `main` / `qa` / `develop`, HU branches, Pull Requests #1–#4, and cherry-pick of `d4c1a2d` onto `qa` and `main`.
 - Analyzed the reservation platform domain using Domain-Driven Design.
 - Identified Identity and Access, Space Management, Reservation Management, Payment Management, and Notification Management as bounded contexts.
 - Established that each future microservice owns its data and must not read another service's database.
@@ -38,7 +38,7 @@
 - Week 02 is being recovered after the product definition was completed later than planned.
 - The message broker has not been selected; that decision belongs to a later ADR.
 - The project is developed by one person, so the number of services must stay controlled.
-- GitHub Projects is not published yet because GitHub CLI is not available in this environment.
+- GitHub Projects is not published yet because GitHub CLI is not installed in this environment.
 - The first formal development Sprint has not started.
 
 ## 4. Plan for next week
@@ -67,16 +67,17 @@
 Notes on the unchecked items:
 
 - GitHub Projects remains pending: the intended board name is **Distributed Reservation Platform - Sprint**. No board URL is published yet.
-- The first Sprint starts after the board exists and the Git exercise screenshots are attached.
+- The first Sprint starts after the GitHub Project exists.
 
 ## 6. Evidence links
 
-- Session summaries: [`resumen-sesiones/week-02-session-summary.svg`](./resumen-sesiones/week-02-session-summary.svg)
-- Git branching exercise: [`ejercicio-ramas-git/README.md`](./ejercicio-ramas-git/README.md)
+- Session summaries: [`session-summaries/week-02-session-summary.svg`](./session-summaries/week-02-session-summary.svg)
+- Git branching exercise: [`git-branching-exercise/README.md`](./git-branching-exercise/README.md)
+- Practice repository: https://github.com/Sebastian080502/prueba_sistema_distribuidos
 - Product brief: [`../../01-week/hu-status/prd.md`](../../01-week/hu-status/prd.md)
-- Context Map: [`context-map.md`](./context-map.md)
-- ADR-001: [`adr-001-architecture.md`](./adr-001-architecture.md)
-- User stories and acceptance criteria: [`user-stories.md`](./user-stories.md)
+- Context Map: [`docs/context-map.md`](./docs/context-map.md)
+- ADR-001: [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md)
+- User stories and acceptance criteria: [`docs/user-stories.md`](./docs/user-stories.md)
 - GitHub Project: pending — board not created yet
 - Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
 - Repository: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
