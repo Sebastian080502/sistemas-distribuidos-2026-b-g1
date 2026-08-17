@@ -15,12 +15,13 @@
 
 ## 1. User stories worked this week
 
-| HU ID      | Title                                                                     | Status (todo/doing/done) | Evidence (PR or commit URL)         |
-| ---------- | ------------------------------------------------------------------------- | ------------------------ | ----------------------------------- |
-| HU-ARC-001 | Identify bounded contexts for the reservation platform                    | done                     | Pending - Week 02 recovery commit   |
-| HU-ARC-002 | Define the initial context map and relationships between bounded contexts | doing                    | Pending - context map documentation |
-| HU-ARC-003 | Document the initial microservices architectural decision                 | doing                    | Pending - ADR-001                   |
-| HU-ARC-004 | Define testable acceptance criteria for the initial architectural backlog | doing                    | Pending - Week 02 recovery commit   |
+| HU ID      | Title                                                                     | Status (todo/doing/done) | Evidence (PR or commit URL)                                                                                          |
+| ---------- | ------------------------------------------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| HU-ADR-001 | Formalize the architectural decision for the Distributed Reservation Platform | done                     | [`adr-001-architecture.md`](./adr-001-architecture.md)                                                               |
+| HU-ARC-001 | Identify bounded contexts for the reservation platform                    | done                     | [`context-map.md`](./context-map.md)                                                                                 |
+| HU-ARC-002 | Define the initial context map and relationships between bounded contexts | done                     | [`context-map.md`](./context-map.md)                                                                                 |
+| HU-ARC-003 | Document the initial microservices architectural decision                 | done                     | [`adr-001-architecture.md`](./adr-001-architecture.md)                                                               |
+| HU-ARC-004 | Define testable acceptance criteria for the initial architectural backlog | done                     | [`user-stories.md`](./user-stories.md)                                                                               |
 
 ## 2. My individual contribution
 
@@ -41,15 +42,14 @@
 - Identified synchronous communication as appropriate for immediate queries and selected commands.
 - Identified asynchronous communication as appropriate for decoupled events such as payment results, reservation state changes, and notifications.
 - Defined the initial architectural direction as a microservices architecture based on business capabilities and bounded contexts.
-- Identified the need to document the architectural decision through ADR-001.
-- Refined the project backlog so that architectural decisions can be converted into testable user stories.
+- Formalized the architectural decision in ADR-001, including context, alternatives, consequences, data ownership, communication strategy, and the immutability rule.
+- Converted the architectural decision into testable user stories with Given/When/Then acceptance criteria.
 - Prepared the project structure required to begin the first formal development Sprint.
 
 ## 3. Blockers and risks
 
 - The Week 02 activities are being recovered after the initial project definition was completed later than planned.
-- The final boundaries of the microservices must be validated before implementation to avoid unnecessary service fragmentation.
-- The exact communication technology and message broker have not yet been selected because the architectural analysis is still being refined.
+- The exact communication technology and message broker have not yet been selected because those implementation decisions belong to a later ADR.
 - The complete reservation lifecycle and payment states still require validation before implementation.
 - The project is being developed individually, so the number of services and features must remain controlled.
 - The Git branching exercise was completed as a learning activity, but the complete workflow still needs to be applied to the real project HUs.
@@ -57,14 +57,10 @@
 
 ## 4. Plan for next week
 
-- Complete and publish the Context Map.
-- Complete and publish ADR-001.
-- Validate the responsibilities and boundaries of the initial bounded contexts.
-- Refine the initial microservice candidates.
-- Define the initial API and event contracts between services.
-- Add acceptance criteria to the main MVP user stories.
-- Configure the GitHub Projects board.
+- Configure the GitHub Projects board using Backlog, Ready, In progress, In review, and Done.
 - Define the Sprint Goal and Sprint Backlog for the first formal development Sprint.
+- Select a small set of MVP stories that can be completed in one week.
+- Define the initial API and event contracts between services.
 - Create the first HU development branch following the validated Git workflow.
 - Begin implementation of the first microservice after the architectural boundaries have been validated.
 
@@ -77,26 +73,25 @@
 - [x] Synchronous and asynchronous communication identified
 - [x] Initial architectural direction defined
 - [x] Initial backlog refined
-- [ ] Context Map published
-- [ ] ADR-001 published
-- [ ] Testable acceptance criteria completed
+- [x] Context Map published
+- [x] ADR-001 published
+- [x] Testable acceptance criteria completed
 - [ ] GitHub Projects board configured
 - [ ] First formal Sprint started
 
 Notes on the unchecked items:
 
-- The Context Map and ADR-001 are being completed as part of the Week 02 architectural recovery.
-- Acceptance criteria will be finalized after the architectural boundaries are validated.
 - GitHub Projects will be configured before the first formal development Sprint.
 - The first Sprint will begin only after the initialization and architectural preparation activities are completed.
 
 ## 6. Evidence links
 
 - Git/GitHub branching exercise: Pending - exercise repository evidence to be added.
-- Product brief: [`../hu-status/prd.md`](../hu-status/prd.md).
-- Context Map: Pending - to be published during Week 02.
-- ADR-001: Pending - to be published during Week 02.
+- Product brief: [`../../01-week/hu-status/prd.md`](../../01-week/hu-status/prd.md).
+- Context Map: [`context-map.md`](./context-map.md).
+- ADR-001: [`adr-001-architecture.md`](./adr-001-architecture.md).
+- User stories and acceptance criteria: [`user-stories.md`](./user-stories.md).
 - Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
 - Repository: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
 
-The project follows the principle of **splitting services for a reason rather than for fashion**. The initial microservice boundaries will be derived from meaningful business capabilities, bounded contexts, independent data ownership, explicit contracts, and justified scalability or deployment needs.
+The project follows the principle of **splitting services for a reason rather than for fashion**. The initial microservice boundaries are derived from meaningful business capabilities, bounded contexts, independent data ownership, explicit contracts, and justified scalability or deployment needs.
