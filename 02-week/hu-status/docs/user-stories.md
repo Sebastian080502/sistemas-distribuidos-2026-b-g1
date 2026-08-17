@@ -26,42 +26,38 @@ High.
 
 ### Acceptance criteria
 
-#### AC-001 — Bounded contexts identified
+```gherkin
+Scenario: Bounded contexts identified
+  Given the initial domain analysis
+  When the architecture is documented
+  Then the main bounded contexts of the platform must be identified using business language
 
-Given the initial domain analysis,
-when the architecture is documented,
-then the main bounded contexts of the platform must be identified.
+Scenario: Academic constraint vs business need
+  Given that the project belongs to Distributed Systems
+  When the architecture is selected
+  Then the use of microservices must be justified
+  And a clear distinction is made between the academic constraint and the actual business need
 
-#### AC-002 — Microservices justification
+Scenario: Alternatives considered
+  When the architectural decision is documented
+  Then the considered alternatives and the reasons for rejecting them must be recorded
 
-Given that the project belongs to Distributed Systems,
-when the architecture is selected,
-then the use of microservices must be justified.
+Scenario: Responsibility of each service
+  When the initial architecture is defined
+  Then each microservice must have a clearly bounded business responsibility
 
-#### AC-003 — Alternatives considered
+Scenario: Synchronous and asynchronous communication
+  When communication between services is documented
+  Then the planned synchronous and asynchronous interactions must be identified
 
-When the architectural decision is documented,
-then the considered alternatives and the reasons for rejecting them must be recorded.
+Scenario: Data ownership
+  When data ownership is documented
+  Then it must be established that each microservice is responsible for its own data
 
-#### AC-004 — Responsibility of each service
-
-When the initial architecture is defined,
-then each microservice must have a clearly bounded business responsibility.
-
-#### AC-005 — Synchronous and asynchronous communication
-
-When communication between services is documented,
-then the planned synchronous and asynchronous interactions must be identified.
-
-#### AC-006 — Data ownership
-
-When data ownership is documented,
-then it must be established that each microservice is responsible for its own data.
-
-#### AC-007 — ADR immutability
-
-When the ADR is accepted,
-then any later change to the architectural decision must be recorded through a new ADR.
+Scenario: ADR immutability
+  When the ADR is accepted
+  Then any later change to the architectural decision must be recorded through a new ADR
+```
 
 ### Evidence
 
@@ -82,12 +78,14 @@ High.
 
 ### Acceptance criteria
 
-- Identity and Access is defined.
-- Space Management is defined.
-- Reservation Management is defined.
-- Payment Management is defined.
-- Notification Management is defined.
-- Each context has a clearly documented responsibility.
+```gherkin
+Scenario: Bounded contexts are identified in business language
+  Given the initial domain analysis of the Distributed Reservation Platform
+  When the bounded contexts are documented
+  Then Identity and Access, Space Management, Reservation Management, Payment Management, and Notification Management are identified
+  And each context is described with business language, not database tables
+  And each context has a clearly documented responsibility
+```
 
 ### Evidence
 
@@ -107,10 +105,15 @@ High.
 
 ### Acceptance criteria
 
-- Relationships between contexts are documented.
-- The owner of each data set is identified.
-- There is no direct access between databases.
-- Synchronous and asynchronous communication contracts are identified.
+```gherkin
+Scenario: Context Map records relationships and data ownership
+  Given the bounded contexts of the Distributed Reservation Platform
+  When the Context Map is documented
+  Then the relationships between contexts are recorded
+  And the owner of each data set is identified
+  And there is no direct access between databases
+  And the planned synchronous and asynchronous communication contracts are identified
+```
 
 ### Evidence
 
@@ -130,15 +133,41 @@ High.
 
 ### Acceptance criteria
 
-- Context documented.
-- Decision documented.
-- Alternatives considered.
-- Rejected alternatives justified.
-- Positive and negative consequences documented.
+```gherkin
+Scenario: ADR-001 captures the architecture decision
+  Given the need to justify the initial architecture
+  When ADR-001 is written
+  Then the Context, Decision, considered alternatives, rejection reasons, and consequences are documented
+```
 
 ### Evidence
 
 - [`adr-001-architecture.md`](./adr-001-architecture.md)
+
+---
+
+## HU-ARC-004 — Define testable acceptance criteria
+
+### Story
+
+As the team, I want to define testable Given/When/Then acceptance criteria for the architectural and product backlog, so that each story can be verified before implementation.
+
+### Priority
+
+High.
+
+### Acceptance criteria
+
+```gherkin
+Scenario: Backlog stories are testable
+  Given the architectural and product stories of Week 02
+  When the acceptance criteria are written
+  Then each story includes Given/When/Then scenarios that can be verified
+```
+
+### Evidence
+
+- [`user-stories.md`](./user-stories.md)
 
 ---
 
@@ -503,4 +532,4 @@ A story is considered done when:
 - The change is integrated into the corresponding branch.
 - The story evidence is recorded in the weekly status.
 
-Architectural stories HU-ARC-001 to HU-ARC-003 and HU-ADR-001 support the architecture definition and are not developed as independent product features.
+Architectural stories HU-ADR-001 and HU-ARC-001 to HU-ARC-004 support the architecture definition and are not developed as independent product features.
