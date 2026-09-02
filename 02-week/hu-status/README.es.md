@@ -19,7 +19,7 @@ The official graded delivery is [`README.md`](./README.md). This file is kept be
 
 | Board Name | URL |
 | ---------- | --- |
-| Distributed Reservation Platform - Sprint | https://github.com/users/Sebastian080502/projects/2 |
+| Distributed Reservation Platform — Backlog | https://github.com/orgs/code-corhuila/projects/19 |
 
 ## 1. User stories worked this week
 
@@ -84,7 +84,7 @@ Notes on the unchecked items:
 - Context Map: [`docs/context-map.md`](./docs/context-map.md)
 - ADR-001: [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md)
 - User stories and acceptance criteria: [`docs/user-stories.md`](./docs/user-stories.md)
-- GitHub Project: https://github.com/users/Sebastian080502/projects/2
+- GitHub Project: https://github.com/orgs/code-corhuila/projects/19
 - Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
 - Repository: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
 

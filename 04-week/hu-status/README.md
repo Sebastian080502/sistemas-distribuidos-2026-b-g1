@@ -15,8 +15,7 @@
 
 | Board Name | URL |
 | ---------- | --- |
-| Distributed Reservation Platform — Backlog (org) | https://github.com/orgs/code-corhuila/projects/19 |
-| Distributed Reservation Platform - Sprint (personal) | https://github.com/users/Sebastian080502/projects/2 |
+| Distributed Reservation Platform — Backlog | https://github.com/orgs/code-corhuila/projects/19 |
 
 ## 1. User stories worked this week
 
