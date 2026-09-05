@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <rect width="900" height="420" fill="#f8fafc"/>
+  <text x="24" y="32" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Semana 4 - Sesion 1 - Base SDD que ya debia existir</text>
+  <rect x="40" y="70" width="250" height="120" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="165" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">00-governance</text>
+  <text x="165" y="148" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11">Git, DoR, DoD</text>
+  <rect x="325" y="70" width="250" height="120" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="450" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">01-context</text>
+  <text x="450" y="148" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11">SpaceHub overview/scope</text>
+  <rect x="610" y="70" width="250" height="120" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="735" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">02-domain</text>
+  <text x="735" y="148" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11">5 contextos + eventos</text>
+  <text x="450" y="250" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Daily: estas tres carpetas son el cimiento. Evidencia: github.com/code-corhuila/drp-docs</text>
+  <text x="450" y="290" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Push pendiente: reconciliar local main con origin/main (board-sync)</text>
+  <text x="450" y="340" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Walking skeleton de un servicio = estructura hexagonal, no Compose de toda la red (semana 6)</text>
+</svg>

@@ -23,7 +23,8 @@
 |---|---|---|---|
 | HU-01 | Select and document the technology stack for the MVP | doing | [drp-docs#1](https://github.com/code-corhuila/drp-docs/issues/1) — ADR-004 drafted locally in `drp-docs` (not pushed yet) |
 | HU-02 | Project discovery for the SpaceHub MVP | doing | [drp-docs#2](https://github.com/code-corhuila/drp-docs/issues/2) — context, scope, and domain drafted locally in `drp-docs` (not pushed yet) |
-| HU-DOC-001 | Apply the SDD `docs/` folder structure (`00`–`15`) to DRP | doing | Session notes: [`session-summary.md`](./session-summary.md) · Official docs repo: https://github.com/code-corhuila/drp-docs |
+| HU-DOC-001 | Apply the SDD `docs/` folder structure (`00`–`15`) to DRP | doing | [`Summary_Class_1_Week_3.md`](./Summary_Class_1_Week_3.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg) · https://github.com/code-corhuila/drp-docs |
+| HU-CLS-003 | Week 03 class notes (docs structure + hexagonal) | done | [`Summary_Class_2_Week_3.md`](./Summary_Class_2_Week_3.md) · [`Diagram Session 2.svg`](./Diagram%20Session%202.svg) |
 
 ## 2. My individual contribution
 
@@ -63,9 +64,11 @@ Notes on the unchecked items:
 
 ## 6. Evidence links
 
-- Session summary: [`session-summary.md`](./session-summary.md)
+- Class session 1: [`Summary_Class_1_Week_3.md`](./Summary_Class_1_Week_3.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg)
+- Class session 2: [`Summary_Class_2_Week_3.md`](./Summary_Class_2_Week_3.md) · [`Diagram Session 2.svg`](./Diagram%20Session%202.svg)
 - Instructor structure (do not edit): [`../01-session/estructura-repositorio-docs.md`](../01-session/estructura-repositorio-docs.md)
-- Org issues: https://github.com/code-corhuila/drp-docs/issues/1 · https://github.com/code-corhuila/drp-docs/issues/2
+- Earlier notes: [`session-summary.md`](./session-summary.md)
+- `drp-docs` HU-01: https://github.com/code-corhuila/drp-docs/issues/1 · `ADR-004-technology-stack.md`
+- `drp-docs` HU-02: https://github.com/code-corhuila/drp-docs/issues/2 · `01-context/` · `02-domain/`
 - Docs repo: https://github.com/code-corhuila/drp-docs
 - Code MVP (not used this week): https://github.com/code-corhuila/distributed-reservation-platform
-- Course fork: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1

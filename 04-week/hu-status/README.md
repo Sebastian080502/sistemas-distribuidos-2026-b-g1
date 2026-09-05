@@ -23,7 +23,8 @@
 |---|---|---|---|
 | HU-01 | Select and document the technology stack for the MVP | doing | [drp-docs#1](https://github.com/code-corhuila/drp-docs/issues/1) — ADR-004 and C4 overview exist locally |
 | HU-02 | Project discovery for the SpaceHub MVP | doing | [drp-docs#2](https://github.com/code-corhuila/drp-docs/issues/2) — models, user stories, and mockup exist locally |
-| HU-DATA-001 | Document one data model per microservice | doing | Local `drp-docs/06-data/models.md` (identity, space, reservation, payment, notification) |
+| HU-DATA-001 | Document one data model per microservice | doing | `drp-docs/06-data/models.md` · [`Diagram Session 2.svg`](./Diagram%20Session%202.svg) |
+| HU-CLS-004 | Week 04 class notes (walking skeleton of one service) | done | [`Summary_Class_1_Week_4.md`](./Summary_Class_1_Week_4.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg) |
 
 ## 2. My individual contribution
 
@@ -59,8 +60,12 @@ Notes on the unchecked items:
 
 ## 6. Evidence links
 
+- Class session 1: [`Summary_Class_1_Week_4.md`](./Summary_Class_1_Week_4.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg)
+- Class session 2: [`Summary_Class_2_Week_4.md`](./Summary_Class_2_Week_4.md) · [`Diagram Session 2.svg`](./Diagram%20Session%202.svg)
+- `drp-docs` models: `06-data/models.md`
+- `drp-docs` OpenAPI: `07-api/contracts/openapi/`
+- `drp-docs` UML: `08-uml/diagrams/source/seq-reserve-pay-confirm.mmd` · `state-reservation.mmd`
+- `drp-docs` mockup: `12-ux-ui/mockups/index.html`
 - Org issues: https://github.com/code-corhuila/drp-docs/issues/1 · https://github.com/code-corhuila/drp-docs/issues/2
 - Org board: https://github.com/orgs/code-corhuila/projects/19
 - Docs repo: https://github.com/code-corhuila/drp-docs
-- Week 03 notes: [`../03-week/hu-status/session-summary.md`](../03-week/hu-status/session-summary.md)
-- Course fork: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1

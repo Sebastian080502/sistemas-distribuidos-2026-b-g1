@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <rect width="900" height="420" fill="#f8fafc"/>
+  <text x="24" y="32" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Semana 5 - Sesion 2 - Evidencia SDD (07 / 08 / 09) en drp-docs</text>
+  <rect x="40" y="70" width="250" height="140" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="165" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">07-api</text>
+  <text x="165" y="158" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11">OpenAPI por servicio</text>
+  <rect x="325" y="70" width="250" height="140" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="450" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">08-uml</text>
+  <text x="450" y="158" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11">seq + state reservation</text>
+  <rect x="610" y="70" width="250" height="140" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="735" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">09-microservices</text>
+  <text x="735" y="158" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11">packs 01-06 + catalogo</text>
+  <text x="450" y="260" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">HU-01 issue #1 · HU-02 issue #2 · tablero projects/19</text>
+  <text x="450" y="300" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Este fork: solo hu-status (apuntes). Producto: drp-docs.</text>
+  <text x="450" y="350" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Push de drp-docs a main: reconciliar board-sync antes de subir</text>
+</svg>

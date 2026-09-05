@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380">
+  <rect width="900" height="380" fill="#f8fafc"/>
+  <text x="24" y="34" font-family="Segoe UI, sans-serif" font-size="17" font-weight="700">Semana 2 - Sesion 2 - Git-flow del codigo (no de docs)</text>
+  <text x="80" y="100" font-family="Consolas, monospace" font-size="14">main &lt;- hu-xxx-main (PR)</text>
+  <text x="80" y="140" font-family="Consolas, monospace" font-size="14">qa &lt;- hu-xxx-qa (PR)</text>
+  <text x="80" y="180" font-family="Consolas, monospace" font-size="14">develop &lt;- hu-xxx-dev (PR)</text>
+  <text x="80" y="230" font-family="Segoe UI, sans-serif" font-size="13">Practica: git-branching-exercise/ (capturas 01-14) y repo prueba_sistema_distribuidos</text>
+  <text x="80" y="270" font-family="Segoe UI, sans-serif" font-size="13">Tablero Corte 1: github.com/orgs/code-corhuila/projects/19</text>
+  <text x="80" y="310" font-family="Segoe UI, sans-serif" font-size="13" fill="#64748b">drp-docs: solo main (regla de la clase de docs, semana 3)</text>
+</svg>

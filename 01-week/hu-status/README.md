@@ -17,7 +17,8 @@
 
 | HU ID      | Title                                                        | Status (todo/doing/done) | Evidence (PR or commit URL)                                    |
 | ---------- | ------------------------------------------------------------ | ------------------------ | -------------------------------------------------------------- |
-| HU-RES-001 | Consult available spaces by date and time                    | doing                    | Pending - Week 01 recovery commit                              |
+| HU-CLS-001 | Week 01 class notes (consistency models)                     | done                     | [`Summary_Class_1_Week_1.md`](./Summary_Class_1_Week_1.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg) |
+| HU-RES-001 | Consult available spaces by date and time                    | doing                    | [`prd.md`](./prd.md) · [`Diagram Session 2.svg`](./Diagram%20Session%202.svg) · later in `drp-docs/01-context/` |
 | HU-RES-002 | Consult the availability of a selected space                 | todo                     | Pending - implementation planned for a future Sprint           |
 | HU-RES-003 | Create a reservation for an available space                  | todo                     | Pending - implementation planned for a future Sprint           |
 | HU-RES-004 | Consult the status of a reservation                          | todo                     | Pending - implementation planned for a future Sprint           |
@@ -90,9 +91,12 @@ Notes on the unchecked items:
 
 ## 6. Evidence links
 
-- Product brief: [`prd.md`](./prd.md) - Distributed Platform for Space Management and Reservations.
-- Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
-- Repository: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
-- GitHub Project: Pending - project board to be created during project initialization.
+- Class session 1: [`Summary_Class_1_Week_1.md`](./Summary_Class_1_Week_1.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg)
+- Class session 2: [`Summary_Class_2_Week_1.md`](./Summary_Class_2_Week_1.md) · [`Diagram Session 2.svg`](./Diagram%20Session%202.svg)
+- Product brief (this fork): [`prd.md`](./prd.md)
+- Same product later in `drp-docs`: `01-context/overview.md`, `01-context/scope.md`
+- Course OVA: https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
+- Course fork: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
+- GitHub Project: https://github.com/orgs/code-corhuila/projects/19
 
 The project follows the principle of **splitting services for a reason rather than for fashion**. Microservices will be derived from meaningful business boundaries, explicit contracts, independent data ownership, and justified scalability or deployment needs.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#f8fafc"/>
+  <text x="24" y="32" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Semana 3 - Sesion 1 - docs/ 00-15 (DRP = drp-docs)</text>
+  <text x="40" y="70" font-family="Consolas, monospace" font-size="12">00-governance - reglas</text>
+  <text x="40" y="95" font-family="Consolas, monospace" font-size="12">01-context - SpaceHub overview / scope / glossary</text>
+  <text x="40" y="120" font-family="Consolas, monospace" font-size="12">02-domain - 5 bounded contexts</text>
+  <text x="40" y="145" font-family="Consolas, monospace" font-size="12">03-product / 04-requirements - HU-RES + Gherkin</text>
+  <text x="40" y="170" font-family="Consolas, monospace" font-size="12">05-architecture - ADR-004, ADR-005, hexagonal</text>
+  <text x="40" y="195" font-family="Consolas, monospace" font-size="12">06-data / 07-api - models + OpenAPI</text>
+  <text x="40" y="220" font-family="Consolas, monospace" font-size="12">08-uml / 09-microservices / 12-ux-ui</text>
+  <text x="40" y="245" font-family="Consolas, monospace" font-size="12">10-15 ops/calidad (base Corte 1)</text>
+  <text x="40" y="270" font-family="Consolas, monospace" font-size="12">99-archive</text>
+  <rect x="40" y="300" width="820" height="180" rx="8" fill="#e2e8f0"/>
+  <text x="60" y="340" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Regla del profesor</text>
+  <text x="60" y="372" font-family="Segoe UI, sans-serif" font-size="13">Documentacion: commit y push a main (sin ramas de version de docs).</text>
+  <text x="60" y="400" font-family="Segoe UI, sans-serif" font-size="13">Codigo: otro repositorio; git-flow por ambiente.</text>
+  <text x="60" y="428" font-family="Segoe UI, sans-serif" font-size="13">Plantilla de clase: 03-week/01-session/estructura-repositorio-docs.md</text>
+  <text x="60" y="456" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">CHANGELOG.md tambien forma parte de esa estructura (drp-docs/CHANGELOG.md).</text>
+</svg>

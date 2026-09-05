@@ -28,6 +28,7 @@
 | HU-ARC-002 | Define the initial context map and relationships between bounded contexts | done                     | [`docs/context-map.md`](./docs/context-map.md)                   |
 | HU-ARC-003 | Document the initial microservices architectural decision                 | done                     | [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md) |
 | HU-ARC-004 | Define testable acceptance criteria for the initial architectural backlog | done                     | [`docs/user-stories.md`](./docs/user-stories.md)                 |
+| HU-CLS-002 | Week 02 class notes (architectures + git-flow)                            | done                     | [`Summary_Class_1_Week_2.md`](./Summary_Class_1_Week_2.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg) |
 
 ## 2. My individual contribution
 
@@ -75,15 +76,15 @@ Notes on the unchecked items:
 
 ## 6. Evidence links
 
-- Session summaries: [`session-summaries/week-02-session-summary.svg`](./session-summaries/week-02-session-summary.svg)
+- Class session 1: [`Summary_Class_1_Week_2.md`](./Summary_Class_1_Week_2.md) · [`Diagram Session 1.svg`](./Diagram%20Session%201.svg)
+- Class session 2: [`Summary_Class_2_Week_2.md`](./Summary_Class_2_Week_2.md) · [`Diagram Session 2.svg`](./Diagram%20Session%202.svg)
+- Earlier session SVG: [`session-summaries/week-02-session-summary.svg`](./session-summaries/week-02-session-summary.svg)
 - Git branching exercise: [`git-branching-exercise/README.md`](./git-branching-exercise/README.md)
 - Practice repository: https://github.com/Sebastian080502/prueba_sistema_distribuidos
-- Product brief: [`../../01-week/hu-status/prd.md`](../../01-week/hu-status/prd.md)
-- Context Map: [`docs/context-map.md`](./docs/context-map.md)
-- ADR-001: [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md)
-- User stories and acceptance criteria: [`docs/user-stories.md`](./docs/user-stories.md)
+- Context Map (fork): [`docs/context-map.md`](./docs/context-map.md)
+- ADR-001 (fork): [`docs/adr-001-architecture.md`](./docs/adr-001-architecture.md)
+- Same ideas in `drp-docs`: `02-domain/domain-map.md` · `ADR-005-microservices-architecture.md`
 - GitHub Project: https://github.com/orgs/code-corhuila/projects/19
-- Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
-- Repository: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
+- Course OVA: https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
 
 The project follows the principle of **splitting services for a reason rather than for fashion**. The initial microservice boundaries are derived from business capabilities, bounded contexts, independent data ownership, explicit contracts, and justified scalability or deployment needs.

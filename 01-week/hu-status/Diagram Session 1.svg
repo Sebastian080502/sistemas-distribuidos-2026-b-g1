@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <rect width="900" height="480" fill="#f8fafc"/>
+  <text x="28" y="36" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Semana 1 - Sesion 1 - Consistencia en DRP / SpaceHub</text>
+  <text x="28" y="58" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Clase: modelos y trade-offs. Aplicacion: que debe ser fuerte vs eventual</text>
+  <rect x="40" y="90" width="380" height="150" rx="10" fill="#fff" stroke="#334155" stroke-width="2"/>
+  <text x="230" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Fuerte (no se negocia)</text>
+  <text x="60" y="148" font-family="Segoe UI, sans-serif" font-size="13">- Crear reserva si el espacio esta libre</text>
+  <text x="60" y="172" font-family="Segoe UI, sans-serif" font-size="13">- Pago: un solo cobro (idempotencia)</text>
+  <text x="60" y="196" font-family="Segoe UI, sans-serif" font-size="13">- Confirmacion solo tras pago OK</text>
+  <text x="60" y="220" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">REST + PostgreSQL del dueno del dato</text>
+  <rect x="480" y="90" width="380" height="150" rx="10" fill="#fff" stroke="#0369a1" stroke-width="2"/>
+  <text x="670" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Eventual (puede retrasarse)</text>
+  <text x="500" y="148" font-family="Segoe UI, sans-serif" font-size="13">- Notificar al usuario</text>
+  <text x="500" y="172" font-family="Segoe UI, sans-serif" font-size="13">- Inbox / correo</text>
+  <text x="500" y="196" font-family="Segoe UI, sans-serif" font-size="13">- Fallo de mail no deshace CONFIRMED</text>
+  <text x="500" y="220" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Eventos at-least-once + idempotencia</text>
+  <rect x="40" y="270" width="820" height="160" rx="10" fill="#e2e8f0"/>
+  <text x="450" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Nodos (aun sin implementar codigo)</text>
+  <text x="450" y="345" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Usuario &gt; SpaceHub &gt; Identity &gt; Space &gt; Reservation &gt; Payment &gt; Notification</text>
+  <text x="450" y="380" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#475569">No hay un reloj global: cada servicio es dueno de su verdad.</text>
+  <text x="450" y="408" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#475569">Evidencia: prd.md (fork) y drp-docs/02-domain/</text>
+</svg>

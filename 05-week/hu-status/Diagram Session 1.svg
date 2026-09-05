@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400">
+  <rect width="880" height="400" fill="#f8fafc"/>
+  <text x="24" y="32" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Semana 5 - Sesion 1 - Docker (OVA): imagen vs contenedor</text>
+  <rect x="50" y="80" width="340" height="160" rx="10" fill="#fff" stroke="#334155"/>
+  <text x="220" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">IMAGE</text>
+  <text x="220" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Dockerfile + capas</text>
+  <text x="220" y="195" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">sin .env / sin secretos</text>
+  <rect x="490" y="80" width="340" height="160" rx="10" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+  <text x="660" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">CONTAINER</text>
+  <text x="660" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">proceso + env + puertos</text>
+  <text x="660" y="195" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">p.ej. space-service :8082</text>
+  <text x="440" y="290" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Volumen = disco (PostgreSQL del contexto). Red = DNS interno.</text>
+  <text x="440" y="330" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Compose de toda la plataforma = semana 6 + c1-release en el repo de codigo</text>
+  <text x="440" y="360" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Puertos DRP: drp-docs/09-microservices/service-catalog.md y 10-devops/local-setup.md</text>
+</svg>

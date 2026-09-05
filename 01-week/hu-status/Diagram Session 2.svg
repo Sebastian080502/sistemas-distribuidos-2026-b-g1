@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <rect width="900" height="420" fill="#f8fafc"/>
+  <text x="28" y="36" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">Semana 1 - Sesion 2 - De la clase al backlog SpaceHub</text>
+  <rect x="40" y="70" width="190" height="90" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="135" y="105" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Problema</text>
+  <text x="135" y="128" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#64748b">doble reserva / pago</text>
+  <rect x="250" y="70" width="190" height="90" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="345" y="105" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">MVP in / out</text>
+  <text x="345" y="128" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#64748b">un tenant SpaceHub</text>
+  <rect x="460" y="70" width="190" height="90" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="555" y="105" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">HU-RES-001..008</text>
+  <text x="555" y="128" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#64748b">capacidades de negocio</text>
+  <rect x="670" y="70" width="190" height="90" rx="8" fill="#fff" stroke="#334155"/>
+  <text x="765" y="105" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">hu-status</text>
+  <text x="765" y="128" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#64748b">plantilla del curso</text>
+  <line x1="230" y1="115" x2="250" y2="115" stroke="#334155" stroke-width="2"/>
+  <line x1="440" y1="115" x2="460" y2="115" stroke="#334155" stroke-width="2"/>
+  <line x1="650" y1="115" x2="670" y2="115" stroke="#334155" stroke-width="2"/>
+  <text x="450" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Fork = apuntes | drp-docs = SDD del producto | code repo = vacio hasta HU-01/HU-02</text>
+  <rect x="80" y="250" width="740" height="130" rx="8" fill="#e2e8f0"/>
+  <text x="450" y="290" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">Entrega: at-least-once en eventos; idempotencia en pago y notificacion</text>
+  <text x="450" y="320" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#475569">Git del codigo (mas adelante): hu-xxx-dev &gt; develop &gt; qa &gt; main</text>
+  <text x="450" y="348" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#475569">Docs: commit en main de drp-docs (indicacion de semana 3)</text>
+</svg>

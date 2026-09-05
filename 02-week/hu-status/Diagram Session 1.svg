@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500">
+  <rect width="920" height="500" fill="#f8fafc"/>
+  <text x="24" y="34" font-family="Segoe UI, sans-serif" font-size="17" font-weight="700">Semana 2 - Sesion 1 - Microservicios con motivo (SpaceHub)</text>
+  <text x="24" y="56" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Clase: no compartir BD. DRP: un PostgreSQL por contexto</text>
+  <rect x="20" y="80" width="170" height="70" rx="8" fill="#fff" stroke="#334155"/><text x="105" y="122" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12">identity + PG</text>
+  <rect x="200" y="80" width="170" height="70" rx="8" fill="#fff" stroke="#334155"/><text x="285" y="122" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12">space + PG</text>
+  <rect x="380" y="80" width="170" height="70" rx="8" fill="#fff" stroke="#334155"/><text x="465" y="122" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12">reservation + PG</text>
+  <rect x="560" y="80" width="170" height="70" rx="8" fill="#fff" stroke="#334155"/><text x="645" y="122" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12">payment + PG</text>
+  <rect x="740" y="80" width="160" height="70" rx="8" fill="#fff" stroke="#334155"/><text x="820" y="122" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12">notification + PG</text>
+  <rect x="280" y="200" width="360" height="56" rx="8" fill="#1e293b"/><text x="460" y="234" text-anchor="middle" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">api-gateway (transversal, sin BD de negocio)</text>
+  <rect x="280" y="280" width="360" height="56" rx="8" fill="#0f766e"/><text x="460" y="314" text-anchor="middle" fill="#ecfdf5" font-family="Segoe UI, sans-serif" font-size="13">Angular web-app (USER + ADMIN)</text>
+  <text x="460" y="380" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13">REST: consultas y crear reserva/pago. Eventos: resultado de pago y avisos</text>
+  <text x="460" y="410" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Evidencia DRP: drp-docs/02-domain/domain-map.md y ADR-005</text>
+  <text x="460" y="440" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#64748b">Evidencia fork: docs/context-map.md</text>
+</svg>
