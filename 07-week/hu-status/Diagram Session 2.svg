@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="40" y="48" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#0f172a">SpaceHub / DRP · Semana 7 sesión 2 · Contratos versionados</text>
+  <text x="40" y="80" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Fuente de verdad: OpenAPI en drp-docs · código implementa el contrato · Pact/CI cuando existan repos</text>
+  <rect x="80" y="130" width="540" height="370" rx="16" fill="#fff" stroke="#0f766e" stroke-width="3"/>
+  <text x="350" y="175" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#0f766e">drp-docs · fuente de verdad</text>
+  <text x="350" y="205" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">07-api/contracts/openapi/</text>
+  <text x="130" y="250" font-family="Segoe UI, sans-serif" font-size="16">• identity-service.yaml</text>
+  <text x="130" y="282" font-family="Segoe UI, sans-serif" font-size="16">• space-service.yaml</text>
+  <text x="130" y="314" font-family="Segoe UI, sans-serif" font-size="16">• reservation-service.yaml</text>
+  <text x="130" y="346" font-family="Segoe UI, sans-serif" font-size="16">• payment-service.yaml</text>
+  <text x="130" y="378" font-family="Segoe UI, sans-serif" font-size="16">• notification-service.yaml</text>
+  <text x="130" y="410" font-family="Segoe UI, sans-serif" font-size="16">• api-gateway.yaml</text>
+  <text x="130" y="442" font-family="Segoe UI, sans-serif" font-size="16">• _shared.yaml (error, message, details, traceId)</text>
+  <rect x="700" y="130" width="420" height="150" rx="14" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="910" y="190" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700">Compatible</text>
+  <text x="910" y="225" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">agregar campo opcional · sigue /api/v1</text>
+  <rect x="1180" y="130" width="340" height="150" rx="14" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="1350" y="190" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700">Breaking</text>
+  <text x="1350" y="225" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">rename · /api/v2 + Sunset</text>
+  <rect x="700" y="320" width="420" height="180" rx="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="910" y="380" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700">Evento</text>
+  <text x="910" y="415" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">PaymentConfirmed.v1</text>
+  <text x="910" y="445" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">cambio breaking → .v2</text>
+  <rect x="1180" y="320" width="340" height="180" rx="14" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <text x="1350" y="380" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700">Pact / CI</text>
+  <text x="1350" y="415" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">Angular consumer</text>
+  <text x="1350" y="445" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">gateway producer · TD-008</text>
+  <rect x="80" y="540" width="1440" height="300" rx="16" fill="#fff" stroke="#1e293b" stroke-width="2"/>
+  <text x="110" y="590" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700">Si el código y el contrato divergen, gana el contrato.</text>
+  <text x="110" y="640" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Angular (consumer) → /api/v1 → api-gateway (producer) → identity / space / reservation / payment</text>
+  <text x="110" y="685" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Unit tests no detectan un rename de campo entre servicios. El contrato vive en drp-docs, no en código ad-hoc.</text>
+  <text x="110" y="730" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Pact en CI está bloqueado hasta que el profesor cree los repos. No se crean desde esta cuenta.</text>
+  <text x="110" y="775" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Error envelope: error + message + details + traceId (_shared.yaml).</text>
+</svg>

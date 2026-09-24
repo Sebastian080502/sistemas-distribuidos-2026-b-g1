@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="40" y="48" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#0f172a">SpaceHub / DRP · Semana 6 sesión 2 · Entornos y 12-factor</text>
+  <text x="40" y="80" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Misma imagen Docker · distinta configuración · git-flow por ambiente en los repos de código</text>
+  <rect x="620" y="120" width="360" height="110" rx="14" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="800" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">Imagen Docker</text>
+  <text x="800" y="195" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">build once · un digest</text>
+  <rect x="80" y="320" width="400" height="130" rx="14" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+  <text x="280" y="375" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">develop</text>
+  <text x="280" y="410" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">hu-xxx-dev → develop</text>
+  <rect x="600" y="320" width="400" height="130" rx="14" fill="#fff" stroke="#0369a1" stroke-width="2"/>
+  <text x="800" y="375" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">qa</text>
+  <text x="800" y="410" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">hu-xxx-qa → qa</text>
+  <rect x="1120" y="320" width="400" height="130" rx="14" fill="#fff" stroke="#1e293b" stroke-width="2"/>
+  <text x="1320" y="375" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">main</text>
+  <text x="1320" y="410" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#475569">hu-xxx-main → main</text>
+  <text x="800" y="490" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Promover el artefacto. Inyectar la configuración. No reconstruir por ambiente.</text>
+  <rect x="80" y="520" width="350" height="120" rx="12" fill="#fff" stroke="#334155"/><text x="255" y="565" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">1. Config en el entorno</text><text x="255" y="595" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">.env.example sí · .env no se sube</text>
+  <rect x="470" y="520" width="350" height="120" rx="12" fill="#fff" stroke="#334155"/><text x="645" y="565" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">2. Fail-fast</text><text x="645" y="595" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">Falta SPACE_DATABASE_URL → no arranca</text>
+  <rect x="860" y="520" width="350" height="120" rx="12" fill="#fff" stroke="#334155"/><text x="1035" y="565" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">3. DNS interno</text><text x="1035" y="595" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">postgres-space · no localhost</text>
+  <rect x="1250" y="520" width="270" height="120" rx="12" fill="#fff" stroke="#334155"/><text x="1385" y="565" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">4. Must Corte 2</text><text x="1385" y="595" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">healthcheck + volúmenes</text>
+  <rect x="80" y="670" width="1440" height="180" rx="16" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+  <text x="110" y="715" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">Repos (los crea el profesor, uno por servicio)</text>
+  <text x="110" y="755" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">web-app · api-gateway · identity-service · space-service · reservation-service · payment-service · notification-service</text>
+  <text x="110" y="800" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">drp-docs: solo rama main. Q-004: el instructor decide dónde vive docker-compose.yml. No se crean repos de código desde esta cuenta.</text>
+</svg>

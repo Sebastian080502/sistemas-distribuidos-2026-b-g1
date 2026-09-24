@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="40" y="48" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#0f172a">SpaceHub / DRP · Semana 7 sesión 1 · Comunicación entre servicios</text>
+  <text x="40" y="80" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">REST mientras el usuario espera · eventos después del dinero / cambio de estado · gRPC no es MVP</text>
+  <rect x="60" y="140" width="220" height="110" rx="12" fill="#0f766e"/>
+  <text x="170" y="185" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#fff">Angular</text>
+  <text x="170" y="215" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#ecfdf5">cliente :4200</text>
+  <rect x="400" y="140" width="280" height="110" rx="12" fill="#1e293b"/>
+  <text x="540" y="185" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#fff">api-gateway</text>
+  <text x="540" y="215" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#cbd5e1">:8080</text>
+  <text x="340" y="175" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#475569">REST</text>
+  <rect x="760" y="120" width="280" height="95" rx="12" fill="#fff" stroke="#334155"/>
+  <text x="900" y="155" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">identity-service</text>
+  <text x="900" y="180" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">JWT / roles</text>
+  <rect x="1120" y="120" width="300" height="95" rx="12" fill="#fff" stroke="#334155"/>
+  <text x="1270" y="155" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">space-service</text>
+  <text x="1270" y="180" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">catálogo / cupo</text>
+  <rect x="760" y="270" width="280" height="95" rx="12" fill="#fff" stroke="#334155"/>
+  <text x="900" y="305" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">reservation-service</text>
+  <text x="900" y="330" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">ciclo de reserva</text>
+  <rect x="1120" y="270" width="300" height="95" rx="12" fill="#fff" stroke="#334155"/>
+  <text x="1270" y="305" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">payment-service</text>
+  <text x="1270" y="330" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">cobro + Idempotency-Key</text>
+  <text x="1040" y="255" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#0369a1">REST cupo</text>
+  <rect x="400" y="420" width="360" height="120" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="580" y="470" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">RabbitMQ :5672</text>
+  <text x="580" y="500" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#475569">broker de eventos</text>
+  <rect x="900" y="420" width="380" height="120" rx="12" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+  <text x="1090" y="470" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">notification-service</text>
+  <text x="1090" y="500" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#475569">consume idempotente (eventId)</text>
+  <rect x="1340" y="420" width="200" height="120" rx="12" fill="#e2e8f0" stroke="#334155"/>
+  <text x="1440" y="470" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">gRPC</text>
+  <text x="1440" y="500" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#475569">no MVP</text>
+  <text x="720" y="400" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#b45309">ReservationConfirmed.v1</text>
+  <text x="1180" y="400" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#b45309">PaymentConfirmed.v1</text>
+  <text x="830" y="470" font-family="Segoe UI, sans-serif" font-size="12" fill="#b45309">consume</text>
+  <rect x="60" y="580" width="1480" height="260" rx="16" fill="#fff" stroke="#334155"/>
+  <text x="90" y="625" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">Decisión SpaceHub (drp-docs/09-microservices/communication-patterns.md)</text>
+  <text x="90" y="670" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Síncrono REST: login, listar espacios, crear reserva, pagar. reservation → space consulta el catálogo antes de crear.</text>
+  <text x="90" y="710" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Asíncrono: PaymentConfirmed / ReservationConfirmed → notification. Un fallo de correo no deshace CONFIRMED.</text>
+  <text x="90" y="750" font-family="Segoe UI, sans-serif" font-size="16" fill="#475569">Red: at-least-once + idempotencia. Anti-patrón: cadena HTTP payment → notification. gRPC solo si hay medición.</text>
+</svg>
