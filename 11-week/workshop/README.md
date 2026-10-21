@@ -9,7 +9,7 @@ journey from `drp-docs`. They are not a generic sample and they are not ParkFlow
 - TEAM: Group 1 — Distributed Reservation Platform (SpaceHub)
 - DOCS_REPO: https://github.com/code-corhuila/drp-docs
 - REFLECTION_DOC: (Google Doc URL — share with jesus.gonzalez@corhuila.edu.co as Editor)
-- JOURNEY: (written in CP1)
+- JOURNEY: Start a SpaceHub payment and confirm the reservation (D-C14)
 <!-- CONFIG-END -->
 
 ## Scope I own
