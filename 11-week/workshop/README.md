@@ -8,16 +8,17 @@ journey from `drp-docs`. They are not a generic sample and they are not ParkFlow
 - GITHUB_USER: Sebastian080502
 - TEAM: Group 1 — Distributed Reservation Platform (SpaceHub)
 - DOCS_REPO: https://github.com/code-corhuila/drp-docs
-- REFLECTION_DOC: (Google Doc URL — share with jesus.gonzalez@corhuila.edu.co as Editor)
+- REFLECTION_DOC: https://docs.google.com/document/d/1c0UG0PKOQT98gH95rDbXeIi0KTLeQNMKSJsxdR7GZEo/edit?usp=sharing
 - JOURNEY: Start a SpaceHub payment and confirm the reservation (D-C14)
 <!-- CONFIG-END -->
 
 ## Scope I own
 
-I work on `drp-identity-api` and on the class-fork evidence. For this workshop I
-instrument the reservation confirm path because that is the journey that already
-crosses `drp-api-gateway`, `drp-reservation-api`, `drp-payment-api` and
-`drp-notification-api` in `drp-docs` (`03-product`, `05-architecture`, `07-api`).
+I am the only member of the SpaceHub team. I own every domain, but this week my
+class evidence was `drp-identity-api` and the fork. For the workshop I use the
+pay-and-confirm path because it already crosses `drp-api-gateway`,
+`drp-reservation-api`, `drp-payment-api` and `drp-notification-api` in `drp-docs`
+(`03-product`, `05-architecture`, `07-api`).
 
 ## Folder
 
