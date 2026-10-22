@@ -30,6 +30,7 @@
 | HU-C2-002 | Consumer-driven contract tests in CI | todo | Still needs Pact/CI; reservation-api has partial `go test` for outbox/create only |
 | HU-PO-001 | Ask PO who owns `amountCents` | doing | [drp-docs#7](https://github.com/code-corhuila/drp-docs/issues/7) still OPEN — do not invent an owner |
 | HU-W11-OBS-001 | Week 11 workshop delivery 1 (CP0–CP4) on SpaceHub pay-and-confirm | done | Fork branch `docs/w11-workshop`: [a9241f7](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/a9241f7) · [09ffc70](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/09ffc70) · [e8621cc](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/e8621cc) · [e266cbb](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/e266cbb) · [90d049b](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/90d049b) · [868ee59](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/868ee59). Journey is E-16 + D-C14, not Camunda |
+| HU-W11-OBS-002 | Week 11 workshop delivery 2 (CP6–CP9) SLOs, burn, runbook, drill | done | [9589cd4](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/9589cd4) · [6d84dc1](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/6d84dc1) · [e3b6016](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/e3b6016) · [3c9b465](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/3c9b465). Second work block. Fast burn pages ~min 23 on hop-2 hang |
 
 ## 2. My individual contribution
 - Sprint planning: reviewed the Moodle **c2-release** / **c2-sprints** rubric (func / quality / arch / scrum + group / individual / ceremonies). Delivery is through GitHub repos, not a zip. Moodle due 13 Oct 2026.
@@ -49,7 +50,7 @@
 - [drp-docs#7](https://github.com/code-corhuila/drp-docs/issues/7) (`amountCents`) still OPEN.
 - HU-C2-002 contract tests still todo.
 - Week 12 hu-status is **not** started.
-- Workshop delivery 2 (SLO, burn-rate, runbook, incident) is a second Moodle activity after a break. Not in this CP5 push.
+- Workshop delivery 2 is done on the same fork branch (SLO 99.5 % / 18 fails / 216 min, burn 14.4 and 6, runbook failover first, drill on `drp-payment-api` 3 s). Implementation plan is in the Google Doc, not here.
 
 ## 4. Plan for next week
 - Paste Moodle **c2-release** (product `v2.0.0` tag links) and **c2-sprints** (this fork + profile CONFIG). Links, not a zip.
@@ -94,7 +95,8 @@ Notes on remaining gaps:
 ### Course
 - Profile CONFIG: https://github.com/Sebastian080502/Sebastian080502
 - This class fork: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
-- Week 11 workshop (delivery 1): https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/tree/docs/w11-workshop/11-week/workshop
+- Week 11 workshop (both deliveries): https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/tree/docs/w11-workshop/11-week/workshop
+- Last workshop commit (update after CP10 push): https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/3c9b465
 - W11 reflection: https://docs.google.com/document/d/1c0UG0PKOQT98gH95rDbXeIi0KTLeQNMKSJsxdR7GZEo/edit?usp=sharing
 - OVA: https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
 - This class fork is **not** tagged `v2.0.0`.
