@@ -29,6 +29,7 @@
 | HU-OUTBOX-001 | `reservation.outbox` table (not a Camunda saga) | doing | [reservation-db#4](https://github.com/code-corhuila/drp-reservation-db/pull/4) MERGED `develop` 2026-10-11. Walking in-memory + Flyway table. No publisher/broker. `drp-workflow` empty/untagged |
 | HU-C2-002 | Consumer-driven contract tests in CI | todo | Still needs Pact/CI; reservation-api has partial `go test` for outbox/create only |
 | HU-PO-001 | Ask PO who owns `amountCents` | doing | [drp-docs#7](https://github.com/code-corhuila/drp-docs/issues/7) still OPEN — do not invent an owner |
+| HU-W11-OBS-001 | Week 11 workshop delivery 1 (CP0–CP4) on SpaceHub pay-and-confirm | done | Fork branch `docs/w11-workshop`: [a9241f7](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/a9241f7) · [09ffc70](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/09ffc70) · [e8621cc](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/e8621cc) · [e266cbb](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/e266cbb) · [90d049b](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/90d049b) · [868ee59](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/868ee59). Journey is E-16 + D-C14, not Camunda |
 
 ## 2. My individual contribution
 - Sprint planning: reviewed the Moodle **c2-release** / **c2-sprints** rubric (func / quality / arch / scrum + group / individual / ceremonies). Delivery is through GitHub repos, not a zip. Moodle due 13 Oct 2026.
@@ -38,6 +39,7 @@
 - After the freeze, started Corte 3 on `develop`: walking HTTP E-11..E-14 and `reservation.outbox`. Confirmation is event-driven (outbox), not a saga coordinator. Did not fake Camunda.
 - Profile CONFIG is published on [Sebastian080502/Sebastian080502](https://github.com/Sebastian080502/Sebastian080502).
 - Did **not** copy product SDD into `11-week/02-session/`. This class fork is weekly evidence only and is **not** tagged `v2.0.0`.
+- Week 11 workshop delivery 1 lives only in `11-week/workshop/` (I am the only SpaceHub member). Mapped `POST /api/v1/payments` → `PaymentConfirmed` → `CONFIRMED`. Go middleware is a fork sample for `drp-reservation-api`, not a product merge. Reflection: https://docs.google.com/document/d/1c0UG0PKOQT98gH95rDbXeIi0KTLeQNMKSJsxdR7GZEo/edit?usp=sharing
 
 ## 3. Blockers and risks
 - Corte 3 walking HTTP / outbox is on `develop` only. Do **not** retag `v2.0.0` (docs#11 also landed after the tag).
@@ -47,6 +49,7 @@
 - [drp-docs#7](https://github.com/code-corhuila/drp-docs/issues/7) (`amountCents`) still OPEN.
 - HU-C2-002 contract tests still todo.
 - Week 12 hu-status is **not** started.
+- Workshop delivery 2 (SLO, burn-rate, runbook, incident) is a second Moodle activity after a break. Not in this CP5 push.
 
 ## 4. Plan for next week
 - Paste Moodle **c2-release** (product `v2.0.0` tag links) and **c2-sprints** (this fork + profile CONFIG). Links, not a zip.
@@ -91,5 +94,7 @@ Notes on remaining gaps:
 ### Course
 - Profile CONFIG: https://github.com/Sebastian080502/Sebastian080502
 - This class fork: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
+- Week 11 workshop (delivery 1): https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/tree/docs/w11-workshop/11-week/workshop
+- W11 reflection: https://docs.google.com/document/d/1c0UG0PKOQT98gH95rDbXeIi0KTLeQNMKSJsxdR7GZEo/edit?usp=sharing
 - OVA: https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
 - This class fork is **not** tagged `v2.0.0`.
