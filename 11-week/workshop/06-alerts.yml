@@ -1,0 +1,44 @@
+groups:
+  - name: spacehub-payment-availability
+    rules:
+      - alert: SpaceHubPaymentFastBurn
+        expr: |
+          (
+            sum(rate(payment_requests_total{route="/api/v1/payments",outcome="error"}[1h]))
+            /
+            sum(rate(payment_requests_total{route="/api/v1/payments"}[1h]))
+          ) > (14.4 * 0.005)
+          and
+          (
+            sum(rate(payment_requests_total{route="/api/v1/payments",outcome="error"}[5m]))
+            /
+            sum(rate(payment_requests_total{route="/api/v1/payments"}[5m]))
+          ) > (14.4 * 0.005)
+        for: 5m
+        labels:
+          severity: page
+          team: spacehub
+        annotations:
+          summary: Fast burn on SpaceHub POST /api/v1/payments (D-C14 path)
+          runbook_url: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/blob/docs/w11-workshop/11-week/workshop/07-runbook.md
+
+      - alert: SpaceHubPaymentSlowBurn
+        expr: |
+          (
+            sum(rate(payment_requests_total{route="/api/v1/payments",outcome="error"}[6h]))
+            /
+            sum(rate(payment_requests_total{route="/api/v1/payments"}[6h]))
+          ) > (6 * 0.005)
+          and
+          (
+            sum(rate(payment_requests_total{route="/api/v1/payments",outcome="error"}[30m]))
+            /
+            sum(rate(payment_requests_total{route="/api/v1/payments"}[30m]))
+          ) > (6 * 0.005)
+        for: 30m
+        labels:
+          severity: ticket
+          team: spacehub
+        annotations:
+          summary: Slow burn on SpaceHub POST /api/v1/payments
+          runbook_url: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/blob/docs/w11-workshop/11-week/workshop/07-runbook.md
