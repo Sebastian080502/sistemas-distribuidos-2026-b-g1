@@ -13,6 +13,9 @@ Individual work for Corte 3, week 13. Names come from `drp-docs`.
 - LIBRARY_BOOK: (author, title, edition, year, call number from CORHUILA library)
 - LIBRARY_RECORD_TIME: (HH:MM on 2026-10-28, library desk)
 - STORIES:
+  - https://github.com/code-corhuila/drp-docs/issues/15
+  - https://github.com/code-corhuila/drp-docs/issues/16
+  - https://github.com/code-corhuila/drp-docs/issues/17
 <!-- CONFIG-END -->
 
 ## Scope I own
