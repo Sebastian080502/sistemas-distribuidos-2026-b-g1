@@ -1,0 +1,23 @@
+# Proposal for the SpaceHub pipeline. Lives in the class fork, not in
+# drp-reservation-api today. Target: pull_request on a Go service.
+name: security-gates
+on:
+  pull_request:
+jobs:
+  secrets-deps-authz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.23.0"
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dependency audit
+        run: go install golang.org/x/vuln/cmd/govulncheck@latest && govulncheck ./...
+        working-directory: 13-week/workshop/04-security-ci
+      - name: Negative authorization test
+        run: go test ./...
+        working-directory: 13-week/workshop/04-security-ci
