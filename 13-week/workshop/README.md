@@ -16,6 +16,7 @@ Individual work for Corte 3, week 13. Names come from `drp-docs`.
   - https://github.com/code-corhuila/drp-docs/issues/15
   - https://github.com/code-corhuila/drp-docs/issues/16
   - https://github.com/code-corhuila/drp-docs/issues/17
+  (CP7: same three issues, not re-created. #15 P0 S=9; #16 P1 T=6 related to #15; #17 P1 I=6. All on Project 19. AC remain testable: 401 without token; signed payload; no userId in 500s.)
 <!-- CONFIG-END -->
 
 ## Scope I own
