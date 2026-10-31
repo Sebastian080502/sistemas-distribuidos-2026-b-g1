@@ -14,26 +14,26 @@
 ## 1. User stories worked this week
 | HU ID | Title | Status (todo/doing/done) | Evidence (PR or commit URL) |
 |---|---|---|---|
-| HU-W13-000 | Claim TB6: `drp-payment-api` → `drp-reservation-api` `POST /internal/events` | doing | https://github.com/code-corhuila/drp-docs/issues/13 |
-| HU-W13-001 | Map attack surface and TB1–TB7 (mine is TB6) | doing | https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/2db1825 |
-| HU-W13-002 | STRIDE on TB6 (S,T,R then I,D,E) in `drp-docs` | doing | https://github.com/code-corhuila/drp-docs/pull/14 |
-| HU-W13-003 | Three `[security]` backlog issues (S=9, T=6, I=6) | doing | https://github.com/code-corhuila/drp-docs/issues/15 · https://github.com/code-corhuila/drp-docs/issues/16 · https://github.com/code-corhuila/drp-docs/issues/17 |
-| HU-W13-004 | Security CI proposal + 401 test for `/internal/events` | doing | https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/f12260b |
-| HU-W13-005 | Close Week 13 progress (this file + Moodle d1) | doing | https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/blob/docs/w13-workshop/13-week/hu-status/README.md |
+| HU-W13-000 | Claim TB6: `drp-payment-api` → `drp-reservation-api` `POST /internal/events` | done | https://github.com/code-corhuila/drp-docs/issues/13 |
+| HU-W13-001 | Map attack surface and TB1–TB7 (mine is TB6) | done | https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/commit/2db1825 |
+| HU-W13-002 | STRIDE on TB6; CP6 review response | done | https://github.com/code-corhuila/drp-docs/pull/14 |
+| HU-W13-003 | Three `[security]` stories; CP7 same issues | done | https://github.com/code-corhuila/drp-docs/issues/15 · https://github.com/code-corhuila/drp-docs/issues/16 · https://github.com/code-corhuila/drp-docs/issues/17 |
+| HU-W13-004 | Security CI + live 401 on `:8083` (CP8) | done | `13-week/workshop/04-security-ci/HOW-TO-RUN.md` |
+| HU-W13-005 | D1 Moodle 28 Oct; D2 close 30 Oct | done | this file |
 
 ## 2. My individual contribution
-- Solo SpaceHub. I claimed the confirm hop: `PaymentConfirmed` from `drp-payment-api` :8084 to `drp-reservation-api` :8083. D-C14 / E-23: no portal confirm; E-16 starts the payment.
-- CP0–CP5 live in `13-week/workshop/` and `13-week/hu-status/` on `docs/w13-workshop`. STRIDE lives in `code-corhuila/drp-docs` branch `security/stride-Sebastian080502`.
-- **Peer review (solo team):** I compared my table with the class example (a public gateway hop vs a domain service). That example treats “skip the gateway” as spoofing. TB6 is already off `drp-api-gateway`, so the same idea here is any docker-network process with the shared `X-Internal-Token` (`spacehub-dev-internal` in `.env.example`). Row E already covers a USER JWT on `/internal/events`. Gap vs the example’s “do not trust the body price”: reservation does not recompute `amountCents` from E-16; a tampered body can still confirm the wrong cents if the token is valid (row T). I did not Approve or merge any PR.
+- Solo SpaceHub. Confirm is E-23 on `:8083`, not `POST /api/v1/reservations/{id}/confirm` (D-C14).
+- D1 (28 Oct): CP0–CP5, STRIDE PR 14, issues 13/15/16/17, Moodle `c3-w13-workshop-d1`.
+- D2 (30 Oct): CP6 answered the solo review (kept S, changed T). CP7 kept the same three stories on Project 19. CP8: `go test` PASS and live `POST /internal/events` without `X-Internal-Token` is **401**. CP9: implementation plan in the Google Doc.
+- I did not Approve or merge PR 14.
 
 ## 3. Blockers and risks
-- LIBRARY_BOOK is still a placeholder until the CORHUILA desk call number exists. Without the physical record, CP2/CP3 can be 0.0.
-- S=9 is not acceptable into qa: shared `INTERNAL_EVENT_TOKEN`.
-- Walking outbox is in-memory. `drp-infra-mongo` is not requested from this workshop.
+- LIBRARY_BOOK still needs the physical CORHUILA call number from the 28 Oct desk record. Rule 11 caps the final delivery at 2.5 without it.
+- S=9 must not enter qa (shared `INTERNAL_EVENT_TOKEN`).
 
 ## 4. Plan for next week
-- CP6–CP9 (take-home): answer review, refine issues, run the 401 test on real `:8083`, write the implementation plan in the Google Doc.
-- Product: keep confirm on the event hop; do not add `POST /api/v1/reservations/{id}/confirm`.
+- Issue 15 first (split the walking token) before qa. Then issue 16 (sign the body). Then issue 17 (no `userId` in logs).
+- Product confirm stays on the event hop.
 
 ## 5. Compliance self-check
 - [x] Conventional Commits - `type(scope): summary`
@@ -43,7 +43,7 @@
 - [x] DDD / hexagonal boundaries respected (domain has no I/O)
 - [x] No secrets; config via environment variables
 
-Notes: class fork uses `docs/w13-workshop`, not `hu-c3-*-dev`. The Go test is a pipeline proposal in the fork, not a change to `drp-reservation-api` today. Per-environment product PRs are not this week’s evidence.
+Notes: class fork uses `docs/w13-workshop`. Product PRs are not this workshop’s evidence. I did not merge my own PR.
 
 ## 6. Evidence links
 - Fork workshop: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/tree/docs/w13-workshop/13-week/workshop
