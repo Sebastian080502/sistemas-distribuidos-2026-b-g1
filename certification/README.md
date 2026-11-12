@@ -37,7 +37,8 @@
 | 2026-11-10 | 0.4 | Chapter 11 Disaster Recovery System Design shows Completed (green check on 11.1 to 11.4, Chapter Slides, and parent). Course 76 percent. Full-screen capture with OS clock | evidence/11-chapter-11.png |
 | 2026-11-10 | 0.4 | Chapter 14 Huawei Cloud Advanced Services shows Completed (green check on 14.1 to 14.3, Chapter Slides, and parent). Full-screen capture with OS clock | evidence/14-chapter-14.png |
 | 2026-11-12 | 0.4 | Chapter 12 Automated Deployment shows Completed (green check on 12.1 to 12.3, Chapter Slides, and parent). Course 96 percent. Full-screen capture with OS clock | evidence/12-chapter-12.png |
-| Total | 9.5 | | |
+| 2026-11-12 | 0.2 | Chapter 13 Containers and Agility shows Completed (green check on 13.1 to 13.3, Chapter Slides, parent, and Thank You). Course 96 percent. Full-screen capture with OS clock | evidence/13-chapter-13.png |
+| Total | 9.7 | | |
 
 ## Labs
 
