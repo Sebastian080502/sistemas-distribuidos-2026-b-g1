@@ -36,7 +36,8 @@
 | 2026-11-10 | 0.3 | Resumed HCCDP-Solution Architectures after Uniportal login. Player at 72 percent. Chapter 11 Disaster Recovery System Design: 11.1 green check; 11.2 Cross-AZ Service HA Architecture Design playing at 2x (Cold Standby DR). 11-chapter-11.png waits until the chapter shows Completed | evidence/10-chapter-10.png |
 | 2026-11-10 | 0.4 | Chapter 11 Disaster Recovery System Design shows Completed (green check on 11.1 to 11.4, Chapter Slides, and parent). Course 76 percent. Full-screen capture with OS clock | evidence/11-chapter-11.png |
 | 2026-11-10 | 0.4 | Chapter 14 Huawei Cloud Advanced Services shows Completed (green check on 14.1 to 14.3, Chapter Slides, and parent). Full-screen capture with OS clock | evidence/14-chapter-14.png |
-| Total | 9.1 | | |
+| 2026-11-12 | 0.4 | Chapter 12 Automated Deployment shows Completed (green check on 12.1 to 12.3, Chapter Slides, and parent). Course 96 percent. Full-screen capture with OS clock | evidence/12-chapter-12.png |
+| Total | 9.5 | | |
 
 ## Labs
 
