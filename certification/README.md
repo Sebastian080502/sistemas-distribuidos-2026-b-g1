@@ -12,7 +12,7 @@
 | Course | HCCDP-Solution Architectures Course |
 | Course link | https://e.huawei.com/en/talent/ict-academy/#/ict-courses-detail?courseId=6WtKiPd1S1YelBB0AUbE1vXlPgk |
 | Start date | 2026-11-05 |
-| Completion date | |
+| Completion date | 2026-11-13 |
 
 ## Study log
 
@@ -37,7 +37,10 @@
 | 2026-11-10 | 0.4 | Chapter 11 Disaster Recovery System Design shows Completed (green check on 11.1 to 11.4, Chapter Slides, and parent). Course 76 percent. Full-screen capture with OS clock | evidence/11-chapter-11.png |
 | 2026-11-10 | 0.4 | Chapter 14 Huawei Cloud Advanced Services shows Completed (green check on 14.1 to 14.3, Chapter Slides, and parent). Full-screen capture with OS clock | evidence/14-chapter-14.png |
 | 2026-11-12 | 0.4 | Chapter 12 Automated Deployment shows Completed (green check on 12.1 to 12.3, Chapter Slides, and parent). Course 96 percent. Full-screen capture with OS clock | evidence/12-chapter-12.png |
-| Total | 9.5 | | |
+| 2026-11-12 | 0.2 | Chapter 13 Containers and Agility shows Completed (green check on 13.1 to 13.3, Chapter Slides, parent, and Thank You). Course 96 percent. Full-screen capture with OS clock | evidence/13-chapter-13.png |
+| 2026-11-12 | 0.3 | HCCDP-Solution Architectures Course exam: 71 points, Passed, 22/30 closed-ended, duration 13/90 minutes, account hid_3tzi46wcugeq3f8 | evidence/19-final-exam.png |
+| 2026-11-12 | 1.5 | Architecture design note for SpaceHub on Huawei Cloud (two AZs, one RDS per env, warm standby) plus ADR-C3-01 and ADR-C3-02 | design/architecture-design-note.md |
+| Total | 11.5 | | |
 
 ## Labs
 
@@ -50,10 +53,10 @@
 
 ## Final exam
 
-- Score: 
-- Date: 
+- Score: 71 / 100 (Passed, 22/30 closed-ended)
+- Date: 2026-11-12
 - Evidence: evidence/19-final-exam.png
 
 ## Skills summary
 
-I started the HCCDP-Solution Architectures Course on Huawei Talent (instructor-led, 56 hours). I have not finished chapters 1 to 14, the online labs, or the final exam, so this summary will name three design techniques from those chapters after I complete them.
+I completed the HCCDP-Solution Architectures Course on Huawei Talent (certificate ICT202261113000013, issue date 2026-11-13). I used a well-defined API and an asynchronous message contract so identity, space, availability, reservation and payment stay isolated (chapter 9). I sized auto scaling from request rate and CPU so the reservation path can add instances without rewriting the data model (chapter 10). I chose a warm-standby pattern across two availability zones so RTO and RPO stay in minutes instead of a cold restore (chapter 11). I kept database schema changes in the domain -db pipelines, not in the APIs (chapter 12). I treated containers as the unit of deploy for the Go and Java services, with the notification worker on its own store (chapter 13). These five techniques are the ones I will defend in the architecture-design note against SpaceHub’s real service names.
