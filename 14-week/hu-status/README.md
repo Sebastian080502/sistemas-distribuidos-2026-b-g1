@@ -14,8 +14,8 @@
 ## 1. User stories worked this week
 | HU ID | Title | Status (todo/doing/done) | Evidence (PR or commit URL) |
 |---|---|---|---|
-| HU-C3-ID-001 | Promote E-01 422 login envelope `develop` → `qa` | doing | Still [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) OPEN against `qa`, review requested `ariel5253`. Not merged. Carried from Week 13; no new promotion this week. |
-| HU-C3-W13-001 | Week 13 class evidence (threat-model workshop + hu-status) | doing | Fork [PR #15](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/15) OPEN (`docs/week-13-hu-status` → `main`). I do **not** self-merge. |
+| HU-C3-ID-001 | Promote E-01 422 login envelope `develop` → `qa` | done | [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) **MERGED** `qa` 2026-11-10 (originally OPEN; corrected 2026-11-13). |
+| HU-C3-W13-001 | Week 13 class evidence (threat-model workshop + hu-status) | done | Fork [PR #15](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/15) **MERGED** 2026-11-12. |
 | HU-C3-INF-001 | Composition root Postgres (Anexo J, host 5436) | doing | Local `drp-infra-postgres` only. Engine was restarted this week after a previous Docker Desktop crash. Flyway `identity-migrate` and live login vs `identity.users` are the verification target — not a compose PR (no committed env). |
 | HU-C3-ID-002 | Identity API reads `identity` schema (no DDL in `-api`) | doing | Adapter already on `develop` (`DATABASE_URL` → `identity_app`). Local verify this week: Flyway then `POST /api/v1/auth/login` on `:8081`. Unpublished local runs are **not** tagged. |
 | HU-C3-LIVE-001 | Front `environment.mode='live'` against gateway | todo | Still `failover` on `drp-front` `main`. Not this week. |
@@ -23,7 +23,7 @@
 
 ## 2. My individual contribution
 - Filled **this** Week 14 `hu-status` on academic week 14 (2026-11-09). Did **not** invent a Week 14 workshop: upstream `14-week/01-session` and `14-week/02-session` are still `.gitkeep` only. The Sync of `code-corhuila/main` brought `certification/` templates; that is Corte 3 Huawei structure, not a Week 14 class session.
-- Left [fork PR #15](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/15) OPEN. Ariel c2-sprints: request review, do not self-merge even as a one-person team.
+- Left PR #15 for review during the week. **Correction 2026-11-13:** [PR #15](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/15) and [PR #16](https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/16) **MERGED** 2026-11-12. [reservation-api#8](https://github.com/code-corhuila/drp-reservation-api/pull/8) **MERGED** 2026-11-10.
 - Product work this week stays on **identity persist + login** against the single Postgres instance (`drp-infra-postgres`, schema `identity`). No AMQP. No Camunda. No self-merge of product PRs.
 - Did **not** fill weeks 12, 15, or 16. Did **not** push the local `docs/c3-certification` branch (Huawei screenshots stay unpublished until the cert README is complete).
 - Did **not** copy product SDD into `14-week/`. This fork is weekly evidence only and is **not** tagged `v2.0.0`.
@@ -31,7 +31,7 @@
 ## 3. Blockers and risks
 - No Week 14 session files from the instructor. Filling a fake `02-session` would be a grave fault. This README is the only Week 14 class deliverable until material appears.
 - Docker Desktop previously died (`dockerDesktopLinuxEngine` pipe missing / OOM). Host publishes Postgres on **5436** because 5432 is often busy; that override is local (`env/dev.env`), not committed.
-- [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) still waits for a **real** review. Bot Approve is not a merge.
+- [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) **MERGED** 2026-11-10.
 - [drp-docs#7](https://github.com/code-corhuila/drp-docs/issues/7) (`amountCents` owner) still OPEN — do not invent an owner.
 - Anexo A probes 23–24 (notification report with payment down / export FAILED) need payment + notification up. Not claimed this week.
 - Confirmation stays event-driven (D-C14). Outbox has no broker (Q-001).
@@ -57,11 +57,13 @@ Notes on the unchecked item:
 
 ## 6. Evidence links
 
-### Product (`code-corhuila`) — carried (OPEN, not merged by me)
-- https://github.com/code-corhuila/drp-identity-api/pull/7 (OPEN `qa`, review requested)
+### Product (`code-corhuila`)
+- https://github.com/code-corhuila/drp-identity-api/pull/7 (MERGED `qa` 2026-11-10)
+- https://github.com/code-corhuila/drp-reservation-api/pull/8 (MERGED 2026-11-10)
 
 ### Course
-- Week 13 still OPEN on this fork: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/15
+- Week 13 MERGED: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/15
+- Week 14 MERGED: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1/pull/16
 - Profile CONFIG: https://github.com/Sebastian080502/Sebastian080502
 - This class fork: https://github.com/Sebastian080502/sistemas-distribuidos-2026-b-g1
 - OVA: https://code-corhuila.github.io/ova-web/2026-B/distribuidos/

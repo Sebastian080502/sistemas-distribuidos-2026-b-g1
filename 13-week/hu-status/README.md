@@ -14,21 +14,21 @@
 ## 1. User stories worked this week
 | HU ID | Title | Status (todo/doing/done) | Evidence (PR or commit URL) |
 |---|---|---|---|
-| HU-C3-ID-001 | Promote E-01 422 login envelope `develop` → `qa` | doing | [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) OPEN against `qa`, review requested `ariel5253`. Cherry-pick `-x` of `35e0ee5` / `2a53f8e`. Not merged. |
+| HU-C3-ID-001 | Promote E-01 422 login envelope `develop` → `qa` | done | [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) **MERGED** `qa` 2026-11-10 (originally OPEN; corrected 2026-11-13). Cherry-pick `-x` of `35e0ee5` / `2a53f8e`. |
 | HU-C3-INF-001 | Composition root up (Postgres + Mongo + gateway :8080) | doing | Local `drp-infra-postgres` `up` reached `drp-postgres-dev` on host **5436**. Docker Desktop then lost the engine (OOM while pulling Mongo). Not claimed healthy. No compose PR (no committed change). |
 | HU-C3-LIVE-001 | Front `environment.mode='live'` against gateway | todo | Still `failover` on `drp-front` `main`. Blocked on gateway + identity process on the compose network. |
 | HU-C2-002 | Consumer-driven contract tests in CI | todo | Not this week. Spread work per Ariel Corte 3 note. |
 
 ## 2. My individual contribution
-- Applied Ariel c2-sprints feedback (4.8/5.0, 2026-10-17): **one** product promotion this week, opened on **Tuesday**, review requested **before** merge, even as a one-person team. Did **not** merge #7.
+- Applied Ariel c2-sprints feedback (4.8/5.0, 2026-10-17): **one** product promotion this week, opened on **Tuesday**, review requested **before** merge, even as a one-person team. Did **not** merge #7 during the week; **correction 2026-11-13:** #7 **MERGED** 2026-11-10.
 - Did **not** cite closed-unmerged PRs (week 08 lesson: `drp-docs` #5 was closed without merge — not evidence).
-- Did **not** backfill week 12 hu-status on 20 Oct (that would repeat “reports written late”). Week 12 template stays empty.
+- Did **not** backfill week 12 hu-status on 20 Oct (that would repeat “reports written late”). Week 12 later filled as late honest catch-up (2026-11-13); no invented workshop.
 - Corte 3 scope this week is identity 422 on `qa` only. Reservation HTTP/outbox is already on `qa`/`main` from Corte 2 catch-up; 422 tests stay on `develop` until a later week.
 - Confirmation stays event-driven (D-C14). Did not fake Camunda. Did not retag `v2.0.0`.
 
 ## 3. Blockers and risks
 - Docker Desktop engine died (`dockerDesktopLinuxEngine` pipe missing) after Postgres start + Mongo pull + local `go test` OOM. Compose + gateway live path paused until the engine is restarted. Host port 5436 is the local override (5432 often busy); not committed.
-- [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) must wait for a **real** review. Bot Approve is not a merge.
+- [identity-api#7](https://github.com/code-corhuila/drp-identity-api/pull/7) **MERGED** 2026-11-10.
 - [drp-docs#7](https://github.com/code-corhuila/drp-docs/issues/7) (`amountCents` owner) still OPEN — do not invent an owner.
 - Identity API still uses the in-memory Corte 2 seed; Flyway in `drp-identity-db` is not wired into `cmd/api` yet.
 
@@ -54,7 +54,8 @@ Notes:
 ## 6. Evidence links
 
 ### Product (`code-corhuila`) — this week
-- https://github.com/code-corhuila/drp-identity-api/pull/7 (OPEN `qa`, review requested)
+- https://github.com/code-corhuila/drp-identity-api/pull/7 (MERGED `qa` 2026-11-10)
+- https://github.com/code-corhuila/drp-reservation-api/pull/8 (MERGED 2026-11-10)
 
 ### Product — already on main from earlier (not new this week; not re-tagged)
 - https://github.com/code-corhuila/drp-reservation-api/pull/7
